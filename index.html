@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <title>MATEMATIVA - Exposição Interativa de Matemática</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      font-size: 10px;
+      margin: 0;
+      padding: 0;
+      background-color: #3E4095;
+    }
+
+    .pagina {
+      max-width: 900px;
+      margin: 0 auto;
+      background-color: white;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      min-height: 100vh;
+    }
+
+    .topo {
+      background-color: #3E4095;
+      color: white;
+      padding: 10px;
+      text-align: center;
+    }
+
+    .topo img { height: 50px; margin-right: 10px; }
+    .titulo { display: flex; flex-direction: column; }
+    .subtitulo { font-size: 18px; }
+
+    .acervo {
+      text-align: right;
+      font-weight: bold;
+      font-size: 10px;
+      padding: 5px 20px;
+      background-color: #3E4095;
+      color: white;
+    }
+
+    .container {
+      display: flex;
+      padding: 20px;
+    }
+
+    .ficha {
+      flex: 2;
+    }
+
+    .ficha table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .ficha td {
+      padding: 5px;
+      border-bottom: 1px solid #ccc;
+    }
+
+    .lateral {
+      flex: 1;
+      padding-left: 10px;
+      text-align: center;
+    }
+
+    .lateral img {
+      width: 100%;
+      max-width: 300px;
+      margin-bottom: 5px;
+      border: 1px solid #ccc;
+    }
+
+    .busca {
+      margin-top: 10px;
+    }
+
+    .busca button {
+      margin-top: 5px;
+    }
+
+    .rodape {
+      background-color: #3E4095;
+      padding: 10px;
+      text-align: center;
+      font-size: 12px;
+      color: white;
+    }
+
+    .rodape img {
+      padding: 10px;
+      height: 70px;
+      margin: 5px;
+      vertical-align: middle;
+    }
+  </style>
+</head>
+<body>
+<div class="pagina">
+  <div class="topo">
+    <img src="matemativa.png" alt="Logo Matemativa">
+  </div>
+
+  <div class="acervo">ACERVO ON-LINE</div>
+
+  <div class="container">
+    <div class="ficha">
+      <table id="tabela-ficha"></table>
+    </div>
+    <div class="lateral">
+      <div id="imagens"></div>
+      <div class="busca">
+        <label for="busca-id"><strong>Ir para objeto:</strong></label><br>
+        <input type="text" id="busca-id" placeholder="Ex: ANT.Moc.364">
+        <button onclick="buscarObjeto()">Buscar</button>
+        <div style="margin-top: 15px;">
+          <button onclick="navegar(-1)">← Anterior</button>
+          <button onclick="navegar(1)">Próximo →</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="rodape">
+    <img src="apoio.png" alt="Apoios"> 
+    <div>© MATEMATIVA - Todos os direitos reservados.</div>
+  </div>
+
+  <script>
+    const objetos = {
+      "ANT.Moc.364": {
+        "dados": {
+          "Nº inventário": "ANT.Moc.364",
+          "Designação objecto": "Quissanje",
+          "Descrição": "Formado por quinze lamelas de ferro de diferentes comprimentos...",
+          "Categorias": "Etnografia / Instrumentos musicais / Idiofone",
+          "Funções/Usos": "Divertimento [Tocado individualmente.]",
+          "Materiais": "Madeira, Metálicos e ligas / ferro",
+          "Medidas": "33 cm Comprimento, 16.5 cm Largura",
+          "Recolha etnográfica": "Moçambique"
+        },
+        "imagens": ["P001_qr.png"]
+      },
+      "MAT.001": {
+        "dados": {
+          "Nº inventário": "MAT.001",
+          "Designação objecto": "Régua de Cálculo",
+          "Descrição": "Instrumento analógico para efetuar multiplicações, divisões, logaritmos e raízes.",
+          "Categorias": "Instrumentos de Cálculo",
+          "Funções/Usos": "Ensino e engenharia",
+          "Materiais": "Madeira, plástico, metal",
+          "Medidas": "30 cm Comprimento",
+          "Recolha etnográfica": "Portugal"
+        },
+        "imagens": ["P002a.png", "P002b.png", "P002c.png"]
+      },
+      "MAT.002": {
+        "dados": {
+          "Nº inventário": "MAT.002",
+          "Designação objecto": "Ábaco Japonês",
+          "Descrição": "Ábaco com contas móveis usado para ensino e cálculo aritmético.",
+          "Categorias": "Instrumentos de Cálculo / Ábacos",
+          "Funções/Usos": "Ensino primário",
+          "Materiais": "Madeira, contas plásticas",
+          "Medidas": "20 cm x 10 cm",
+          "Recolha etnográfica": "Japão"
+        },
+        "imagens": ["P003a.png", "P003b.png", "P003c.png"]
+      },
+      "MAT.003": {
+        "dados": {
+          "Nº inventário": "MAT.003",
+          "Designação objecto": "Sólido de Platão",
+          "Descrição": "Modelo tridimensional de um icosaedro regular, usado para ensino de geometria.",
+          "Categorias": "Modelos Geométricos",
+          "Funções/Usos": "Ensino de matemática e estética",
+          "Materiais": "Plástico translúcido",
+          "Medidas": "15 cm de diâmetro",
+          "Recolha etnográfica": "Desconhecida"
+        },
+        "imagens": ["solido1.png", "solido2.png", "solido3.png"]
+      }
+    };
+
+    const chaves = Object.keys(objetos);
+    let indiceAtual = 0;
+
+    function exibirObjeto(id) {
+      const objeto = objetos[id];
+      if (!objeto) {
+        alert("Objeto não encontrado.");
+        return;
+      }
+
+      indiceAtual = chaves.indexOf(id);
+      if (indiceAtual === -1) indiceAtual = 0;
+
+      const tabela = document.getElementById("tabela-ficha");
+      tabela.innerHTML = "";
+      for (const chave in objeto.dados) {
+        tabela.innerHTML += `<tr><td><strong>${chave}</strong></td><td>${objeto.dados[chave]}</td></tr>`;
+      }
+
+      const imgContainer = document.getElementById("imagens");
+      imgContainer.innerHTML = "";
+      objeto.imagens.forEach(src => {
+        const img = document.createElement("img");
+        img.src = src;
+        img.alt = "Imagem do objeto";
+
+        if (src === "P001_qr.png") {
+          const link = document.createElement("a");
+          link.href = "https://drive.google.com/file/d/1lBkJ0ZBv1H4mmna15cNYFMbVXi1yPB9O/view?usp=drive_link";
+          link.target = "_blank";
+          link.appendChild(img);
+          imgContainer.appendChild(link);
+        } else {
+          imgContainer.appendChild(img);
+        }
+      });
+
+      document.getElementById("busca-id").value = id;
+    }
+
+    function buscarObjeto() {
+      const id = document.getElementById("busca-id").value.trim();
+      exibirObjeto(id);
+    }
+
+    function navegar(direcao) {
+      let novoIndice = indiceAtual + direcao;
+      if (novoIndice < 0) novoIndice = 0;
+      if (novoIndice >= chaves.length) novoIndice = chaves.length - 1;
+      exibirObjeto(chaves[novoIndice]);
+    }
+
+    exibirObjeto(chaves[0]);
+  </script>
+</div>
+</body>
+</html>
