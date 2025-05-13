@@ -213,14 +213,30 @@
         img.src = src;
         img.alt = "Imagem do objeto";
 
-        if (src === "P001_qr.png") {
+        if (src === "P001.png") {
           const link = document.createElement("a");
           link.href = "https://drive.google.com/file/d/1lBkJ0ZBv1H4mmna15cNYFMbVXi1yPB9O/view?usp=drive_link";
           link.target = "_blank";
           link.appendChild(img);
           imgContainer.appendChild(link);
-        } else {
-          imgContainer.appendChild(img);
+        } else if (src === "P002.png") {
+          const link = document.createElement("a");
+          link.href = "https://drive.google.com/file/d/1rHSb4KRhxKNTX4xC4421gWNJ0SEQ4ycB/view?usp=sharinga";
+          link.target = "_blank";
+          link.appendChild(img);
+          imgContainer.appendChild(link);
+        } else if (src === "P003.png") {
+          const link = document.createElement("a");
+          link.href = "https://drive.google.com/file/d/1ASyIBbPtPUTj9g1NfQqTWxGZjbpxIGKl/view?usp=sharing";
+          link.target = "_blank";
+          link.appendChild(img);
+          imgContainer.appendChild(link);
+        } else if (src === "P004.png") {
+          const link = document.createElement("a");
+          link.href = "https://drive.google.com/file/d/1jT0ovWYczVTk6fGFhCI7f5cbNJqSIOYQ/view?usp=sharing";
+          link.target = "_blank";
+          link.appendChild(img);
+          imgContainer.appendChild(link);
         }
       });
 
