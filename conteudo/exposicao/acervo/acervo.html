@@ -1,0 +1,1525 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="shortcut icon" href="../../../imagens/icone.ico" >
+  <meta name="Keywords" content="Museu Exposição Matemativa Matemática Interativa UEM" />
+  <title>Matemativa - Exposição Interativa de Matemática</title>
+  <link rel="stylesheet" type="text/css" href="../../../css/estilo.css" />
+  <!-- Menu Vertical -->
+  <link type="text/css" href="../../../css/menu.css" rel="stylesheet" />
+  <script type="text/javascript" src="../../../css/jquery.js"></script>
+  <script type="text/javascript" src="../../../css/menu.js"></script>
+  <!-- Final Menu Vertical --> 
+</head>
+<body onload="preloadImages();">
+<!-- Codigo facebook flutuante -->
+<script type="text/javascript">
+//<!--
+$(document).ready(function() {$(".box-flutuante-facebook").hover(function() {$(this).stop().animate({right: "0"}, "medium");}, function() {$(this).stop().animate({right: "-250"}, "medium");}, 500);});
+//-->
+</script>
+<style type="text/css">
+.box-flutuante-facebook{background: url("../../../imagens/floatingfb.png") no-repeat scroll left center transparent !important;display: block;float: right;height: 270px;padding: 0 5px 0 40px;width: 245px;z-index: 99999;position:fixed;right:-250px;top:20%;}
+.box-flutuante-facebook div{border:none;position:relative;display:block;}
+.box-flutuante-facebook span{bottom: 10px;font: 10px tahoma,verdana,arial,sans-serif;position: absolute;right: 6px;text-align: right;z-index: 99999;}
+.box-flutuante-facebook span a{color: #808080;text-decoration:none;}
+.box-flutuante-facebook span a:hover{text-decoration:underline;}
+</style>
+<div class="box-flutuante-facebook" style="">
+<div>
+<iframe src="//www.facebook.com/plugins/likebox.php?href=https://www.facebook.com/matemativa.uem&amp;width=251&amp;height=270&amp;colorscheme=light&amp;show_faces=true&amp;border_color=%23cccccc&amp;stream=false&amp;header=false&amp;appId=159468740772399" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:251px; height:270px; background:#fff;" allowtransparency="true"></iframe>
+</div>
+</div>
+<!-- Final Codigo facebook flutuante -->
+<div id="container">
+<table align="center" border="0" cellpadding="0" cellspacing="0" width="780">
+  <tbody>
+    <tr>
+      <td height="179"> <iframe src="../../../iframe/topo.html" frameborder="0" height="100%" scrolling="no" width="100%"> </iframe>
+      </td>
+    </tr>
+    <tr>
+    <td background="../../../imagens/fundo.png">
+    <div id="menu">
+		<ul class="menu">
+			<li><a href="../../../index.html"><span>Principal</span></a></li>
+			<li><a href="../../agenda.html"><span>Agenda</span></a></li>
+			<li><a href="../../biblioteca.html"><span>Biblioteca</span></a></li>
+			<li><a href="../../exposicao.html" class="parent"><span>Exposição</span></a>
+				<div><ul>
+					<li><a href="acervo.html"><span>Conhecer todo o acervo </span></a></li>
+					<li><a href="../curvas/curvas.htm" class="parent"><span>Exposição de Curvas </span></a>
+						<div><ul>
+							<li><a href="../curvas/reta/retas.htm"><span>Construção de Retas</span></a></li>
+							<li><a href="../curvas/conicas/conicas.htm"><span>Cônicas</span></a></li>
+							<li><a href="../curvas/curvas_transcendentes/transcendentes.htm"><span>Curvas Transcendentes</span></a></li>
+							<li><a href="../curvas/regradas/regradas.htm"><span>Superfícies Regradas</span></a></li>
+						</ul></div>
+					</li>
+					<li><a href="../simetrias/simetrias.html" class="parent"><span>Exposição de Simetrias</span></a>
+						<div><ul>
+							<li><a href="../simetrias/conceito/conceito.html"><span>Conceito</span></a></li>
+							<li><a href="../simetrias/isometrias/isometria.html"><span>Isometrias Planas</span></a></li>
+							<li><a href="../simetrias/frisos_rosetas/frisos_rosetas.html"><span>Rosetas e Frisos</span></a></li>
+							<li><a href="../simetrias/papeis/papeis.html"><span>Papéis de Parede</span></a></li>
+							<li><a href="../simetrias/reconhecimento/reconhecimento.html"><span>Reconhecimento</span></a></li>
+							<li><a href="../simetrias/softwares/software.html"><span>Os programas Simis e Face</span></a></li>
+						</ul></div>
+					</li>
+				</ul></div>
+			</li>
+			<li><a href="../../memoria.html" class="parent"><span>Memória</span></a>
+				<div><ul>
+					<li><a href="../../memoria/exposicoes.html"><span>Exposições</span></a></li>
+					<li><a href="../../memoria/mostra.html"><span>Mostra de Objetos</span></a></li>
+					<li><a href="../../memoria/comunicacao.html"><span>Comunicações</span></a></li>
+					<li><a href="../../memoria/oficinas.html"><span>Oficinas</span></a></li>
+					<li><a href="../../memoria/palestras_minic.html"><span>Palestras e Minicurcos</span></a></li>
+					<li><a href="../../memoria/outros.html"><span>Outros</span></a></li>
+				</ul></div>
+			</li>			
+			<li><a href="../../contato.html"><span>Contatos</span></a></li>
+			<li><a href="../../mapa.html"><span>Mapa</span></a></li>
+			<li class="last"><a href="../../creditos.html" class="parent"><span>Créditos</span></a>
+				<div><ul>
+					<li><a href="../../creditos/coordenacao.html"><span>Coordenação</span></a></li>
+					<li><a href="../../creditos/participantes.html"><span>Participantes</span></a></li>
+					<li><a href="../../creditos/apoio.html"><span>Apoio</span></a></li>
+					<li><a href="../../creditos/promocao.html"><span>Promoção</span></a></li>
+					<li><a href="../../creditos/montagem.html"><span>Montagem da Página</span></a></li>
+					<li><a href="../../creditos/confeccao.html"><span>Confecção dos  exhibits</span></a></li>
+					<li><a href="../../creditos/arte.html"><span>Arte</span></a></li>
+					<li><a href="../../creditos/agrad.html"><span>Agradecimentos</span></a></li>
+					<li><a href="../../creditos/agradesp.html"><span>Agradecimentos Especiais</span></a></li>
+					<li><a href="../../creditos/referencias.html"><span>Referências Principais</span></a></li>
+				</ul></div>					
+			</li>				
+		</ul>
+	</div>      
+      <div id="texto">     
+      <table style="width: 547px;" class="MsoNormalTable" id="table1" border="0" cellpadding="0" cellspacing="0">        
+          <tr style="height: 34.85pt;">
+            <td colspan="2">            
+            <div style="text-align: right;"> <span style="font-family: Arial;"><h3>Acervo</h3></span></div><br />
+            <span style="font-family: Arial; font-weight: normal;" ><small>
+			Nosso acervo é composto atualmente de 45 peças. Estas peças
+			estão agrupadas abaixo segundo o setor temático	ao qual pertence. Os projetos das
+			peças estarão disponíveis no futuro.<br />
+			Clicando sobre as fotos você obterá outras informações sobre a peça.<br />
+            </small></span>
+
+            <h3><span style="font-family: Arial; font-weight: bold;"><small>Setor:
+			Geometria das Curvas</small></span></h3>
+            </td>
+		  </tr>
+			<tr>
+            <td colspan="2" id="bordaAzul">
+            <p style="font-family: Arial; font-weight: normal;" align="left"><small><b>Subsetor:
+			Construção de Retas</b></small></p>
+            </td>
+          </tr>
+		  
+		  <tr>
+            <td colspan="2" valign="top">&nbsp;</td>
+          </tr>
+		  
+          <tr>
+            <td colspan="2" valign="top" bgcolor="#B5C9D5">            
+            <p style="font-family: Arial; font-weight: bold;"><small>Peça 001.
+			Retas - Quadro Branco</small></p>
+			</td>
+		  </tr>
+		  <tr>
+			<td valign="top" bgcolor="#B5C9D5"> 
+            <p style="font-family: Arial; font-weight: normal;"><i><u><small>Descrição</small></u></i><small>:
+			Peça de madeira MDF com fórmica branca.</small></p>            
+            <p style="font-family: Arial; font-weight: normal;">
+            <small><i><u>Objetivo</u></i>:
+			Perceber a diferença entre perfil e instrumento para
+			traçar curvas, em particular, retas e
+			circunferências. </small></p>
+            </td>
+            <td valign="top" width="188" bgcolor="#B5C9D5">
+            <p class="MsoNormal" style="text-align: center;" align="center"> <a href="../curvas/reta/1_quadro_branco/quadro_branco.htm"><font color="#ffffff" size="2"> <img class="imagem" style="border: 0px solid;" alt="Quadro Branco" src="../curvas/reta/1_quadro_branco/c01_3_.JPG" v:shapes="_x0000_s1069" /></font></a></p>
+            <h5><p align="center" style="font-family: Arial;"><small><small>Clique na imagem!</small></small></p></h5>
+			</td>
+		  </tr>
+		 
+          <tr>
+            <td colspan="2" valign="top">&nbsp;</td>
+          </tr>
+		  
+          <tr>
+            <td colspan="2" bgcolor="#B5C9D5" valign="top">
+            <p style="font-family: Arial; font-weight: bold;"><small>Peça 002.
+			Retas - Mecanismo de Watt</small></p>
+            </td>
+          </tr>
+          <tr>
+            <td bgcolor="#B5C9D5" valign="top">    
+            <p style="font-family: Arial; font-weight: normal;"><i><u><small>Descrição</small></u></i><small>:
+			Peça de madeira MDF em fórmica branca com
+			articulações em barras de alumínio.</small></p>
+            <p style="font-family: Arial; font-weight: normal;">
+            <small><i><u>Objetivo</u></i>:
+			Traçar uma reta de forma aproximada utilizando o mecanismo
+			de Watt. </small></p>
+            </td>
+            <td bgcolor="#B5C9D5" valign="top" width="188">
+            <p class="MsoNormal" style="text-align: center;" align="center"> <a href="../curvas/reta/2_watt/watt.htm"><font color="#ffffff" size="2"><img class="imagem" style="border: 0px solid;" alt="Mecanismo de Watt" src="../curvas/reta/2_watt/c02_2.JPG" v:shapes="_x0000_s1068" /></font></a></p>
+            <h5><p align="center" style="font-family: Arial;"><small><small>Clique na imagem!</small></small></p></h5>
+			</td>
+          </tr>
+
+          <tr>
+            <td colspan="2" valign="top">&nbsp;</td>
+          </tr>
+
+          <tr>
+            <td colspan="2" bgcolor="#B5C9D5" valign="top">
+            <p style="font-family: Arial; font-weight: bold;"><small>Peça 003.
+			Retas - Mecanismo de Tchebycheff</small></p>
+            </td>
+          </tr>
+          <tr>
+            <td bgcolor="#B5C9D5" valign="top">
+            <p style="font-family: Arial; font-weight: normal;"><i><u><small>Descrição</small></u></i><small>:
+			Peça de madeira MDF em fórmica branca com
+			articulações em barras de alumínio.</small></p>
+            <p style="font-family: Arial; font-weight: normal;">
+            <small><i><u>Objetivo</u></i>:
+			Traçar uma reta de forma aproximada utilizando o mecanismo
+			Tchebycheff.</small></p>
+            </td>
+            <td bgcolor="#B5C9D5" valign="top" width="188">            
+            <p class="MsoNormal" style="text-align: center;" align="center"> <a href="../curvas/reta/3_tchebycheff/tchebycheff.htm"><font color="#ffffff" size="2"><img class="imagem" style="border: 0px solid;" alt="Mecanismo de Tchebycheff" src="../curvas/reta/3_tchebycheff/c03_1.JPG" v:shapes="_x0000_s1067" /></font></a></p>
+            <h5><p align="center" style="font-family: Arial;"><small><small>Clique na imagem!</small></small></p></h5>
+			</td>
+          </tr>
+		  
+          <tr>
+            <td colspan="2" valign="top">&nbsp;</td>
+          </tr>
+
+          <tr>
+            <td colspan="2" bgcolor="#B5C9D5" valign="top">            
+            <p style="font-family: Arial; font-weight: bold;"><small>Peça 004.
+			Retas - Mecanismo de Roberts</small></p>
+            </td>
+          </tr>
+          <tr>
+            <td bgcolor="#B5C9D5" valign="top">
+            <p style="font-family: Arial; font-weight: normal;"><i><u><small>Descrição</small></u></i><small>:
+			Peça de madeira MDF em fórmica branca com
+			articulações em barras de alumínio.</small></p>            
+            <p style="font-family: Arial; font-weight: normal;">
+            <small><i><u>Objetivo</u></i>:
+			Traçar uma reta de forma aproximada utilizando o mecanismo
+			de Roberts.</small></p>
+            </td>
+            <td bgcolor="#B5C9D5" valign="top" width="188">            
+            <p class="MsoNormal" style="text-align: center;" align="center"> <a href="../curvas/reta/4_roberts/roberts.htm"><font color="#ffffff" size="2"><img class="imagem" style="border: 0px solid;" alt="Mecanismo de Roberts" src="../curvas/reta/4_roberts/c04_3.JPG" v:shapes="_x0000_s1066" /></font></a></p>
+            <h5><p align="center" style="font-family: Arial;"><small><small>Clique na imagem!</small></small></p></h5>
+			</td>
+          </tr>
+
+          <tr>
+            <td colspan="2" valign="top">&nbsp;</td>
+          </tr>
+
+          <tr>
+            <td colspan="2" bgcolor="#B5C9D5" valign="top">         
+            <p style="font-family: Arial; font-weight: bold;"><small>Peça 005.
+			Retas - Mecanismo de Peaucellier-Lipkin</small></p>
+            </td>
+          </tr>
+          <tr>
+            <td bgcolor="#B5C9D5" valign="top">          
+            <p style="font-family: Arial; font-weight: normal;"><i><u><small>Descrição</small></u></i><small>:
+			Peça de madeira MDF em fórmica branca com
+			articulações em barras de alumínio.</small></p>
+            <p style="font-family: Arial; font-weight: normal;">
+            <small><i><u>Objetivo</u></i>:
+			Traçar uma reta de forma exata utilizando o mecanismo de
+			Peaucelier.</small></p>
+            </td>
+            <td bgcolor="#B5C9D5" valign="top" width="188">            
+            <p class="MsoNormal" style="text-align: center;" align="center"> <a href="../curvas/reta/5_peaucelier_lipkin/peaucelier_lipkin.htm"><font color="#ffffff" size="2"><img class="imagem" style="border: 0px solid;" alt="Mecanismo de Peaucelier-Lipkin" src="../curvas/reta/5_peaucelier_lipkin/c05_2.JPG" v:shapes="_x0000_s1065" /></font></a></p>
+            <h5><p align="center" style="font-family: Arial;"><small><small>Clique na imagem!</small></small></p></h5>
+			</td>
+          </tr>
+		  
+          <tr>
+            <td colspan="2" valign="top">&nbsp;</td>
+          </tr>
+		  
+          <tr>
+            <td colspan="2" bgcolor="#B5C9D5" valign="top">
+            <p style="font-family: Arial; font-weight: bold;"><small>Peça 006.
+			Retas - Mecanismo de Hart</small></p>
+            </td>
+          </tr>
+          <tr>
+            <td bgcolor="#B5C9D5" height="113" valign="top">
+            <p style="font-family: Arial; font-weight: normal;"><i><u><small>Descrição
+            </small></u></i><small>:
+			Peça de madeira MDF em fórmica branca com
+			articulações em barras de alumínio.</small></p>            
+            <p style="font-family: Arial; font-weight: normal;">
+            <small><i><u>Objetivo</u></i>:
+			Traçar
+			uma reta de forma exata utilizando o mecanismo de Hart.</small></p>
+            </td>
+            <td bgcolor="#B5C9D5" width="188">
+            <p class="MsoNormal" style="text-align: center;" align="center"> <a href="../curvas/reta/6_hart/hart.htm"><font color="#ffffff" size="2"><img class="imagem" style="border: 0px solid;" alt="Mecanismo de Hart" src="../curvas/reta/6_hart/c06_2.JPG" v:shapes="_x0000_s1064" /></font></a></p>
+            <h5><p align="center" style="font-family: Arial;"><small><small>Clique na imagem!</small></small></p></h5>
+			</td>
+          </tr>
+
+          <tr>
+            <td colspan="2" valign="top">&nbsp;<br />
+            </td>
+          </tr>
+		  
+          <tr>
+            <td colspan="2" id="bordaAzul">
+            <p style="font-family: Arial; font-weight: bold;"><small>Subsetor:
+			Cônicas</small></p>
+            </td>
+          </tr>
+
+          <tr>
+            <td colspan="2" valign="top">&nbsp;<br />
+            </td>
+          </tr>
+		  
+          <tr>
+            <td colspan="2" bgcolor="#B5C9D5" valign="top">
+            <p style="font-family: Arial; font-weight: bold;"><small>Peças 013, 014 e 015.
+			Cônicas de Jardineiro</small></p>
+			</td>
+		  </tr>
+		  <tr>
+			<td bgcolor="#B5C9D5" height="113" valign="top">
+            <p style="font-family: Arial; font-weight: normal;"><i><u><small>Descrição
+            </small></u></i><small>:
+			Peça de madeira MDF em fórmica branca com
+			articulações em barras de alumínio.</small></p>            
+            <p style="font-family: Arial; font-weight: normal;">
+            <small><i><u>Objetivo</u></i>:
+			Traçar
+			a elipse, hipérbole e parábola utilizando o
+			método do jardineiro.</small></p>
+            </td>
+            <td bgcolor="#B5C9D5" width="188">
+            <p class="MsoNormal" style="text-align: center;" align="center"> <a href="../curvas/conicas/1_jardineiras/jardineiras.htm"><font color="#ffffff" size="2"><img class="imagem" style="border: 0px solid;" alt="Cônicas de jardineiro" src="../curvas/conicas/1_jardineiras/c07_1.JPG" v:shapes="_x0000_s1063" /></font></a></p>
+            <h5><p align="center" style="font-family: Arial;"><small><small>Clique na imagem!</small></small></p></h5>
+			</td>
+          </tr>
+
+          <tr>
+            <td colspan="2" valign="top">&nbsp;</td>
+          </tr>
+
+          <tr>
+            <td colspan="2" bgcolor="#B5C9D5" valign="top">
+            <p style="font-family: Arial; font-weight: bold;"><small>Peças 107, 108 e 109.
+			Cônicas de Van Shooten</small></p>
+            </td>
+          </tr>
+          <tr>
+            <td bgcolor="#B5C9D5" height="113" valign="top">            
+            <p style="font-family: Arial; font-weight: normal;"><i><u><small>Descrição
+            </small></u></i><small>:
+			Peça de madeira MDF em fórmica branca com
+			articulações em barras de alumínio.</small></p>
+            <p style="font-family: Arial; font-weight: normal;">
+            <small><i><u>Objetivo</u></i>:
+			Traçar
+			a elipse, hipérbole e
+			parábola utilizando sistemas articulados de van Shooten.</small></p>
+            </td>
+            <td bgcolor="#B5C9D5" width="188">
+            <p class="MsoNormal" style="text-align: center;" align="center"> <a href="../curvas/conicas/2_van_shooten/van_shooten.htm"><font color="#ffffff" size="2"><img class="imagem" style="border: 0px solid;" alt="Cônicas de Van Shooten" src="../curvas/conicas/2_van_shooten/c08_11.JPG" v:shapes="_x0000_s1062" /></font></a></p>
+            <h5><p align="center" style="font-family: Arial;"><small><small>Clique na imagem!</small></small></p></h5>
+			</td>
+          </tr>
+		  
+          <tr>
+            <td colspan="2" valign="top">&nbsp;</td>
+          </tr>
+		  
+          <tr>
+            <td colspan="2" bgcolor="#B5C9D5" valign="top">   
+            <p style="font-family: Arial; font-weight: bold;"><small>Peça 016.
+			Espelhos Parabólicos</small></p>
+            </td>
+          </tr>
+          <tr>
+            <td bgcolor="#B5C9D5" valign="top">      
+            <p style="font-family: Arial; font-weight: normal;"><i><u><small>Descrição
+            </small></u></i><small>:
+			Peça de madeira MDF com acabamento tipo marfim visor interno
+			de acrílico e dois espelhos parabólicos.</small></p>            
+            <p style="font-family: Arial; font-weight: normal;">
+            <small><i><u>Objetivo</u></i>:
+			Observar
+			a propriedade reflexiva do parabolóide de
+			revolução.</small></p>
+            </td>
+            <td bgcolor="#B5C9D5" valign="top" width="188">  
+            <p class="MsoNormal" style="text-align: center;" align="center"> <a href="../curvas/conicas/3_espelhos_parabolicos/espelhos_parabolicos.htm"><font color="#ffffff" size="2"><img class="imagem" style="border: 0px solid;" alt="Espelhos Parabólicos" src="../curvas/conicas/3_espelhos_parabolicos/c09_2.JPG" v:shapes="_x0000_s1061" /></font></a></p>
+            <h5><p align="center" style="font-family: Arial;"><small><small>Clique na imagem!</small></small></p></h5>
+			</td>
+          </tr>
+
+          <tr>
+            <td colspan="2" valign="top">&nbsp;</td>
+          </tr>
+
+          <tr>
+            <td colspan="2" bgcolor="#B5C9D5" valign="top">
+            <p style="font-family: Arial; font-weight: bold;"><small>Peça 017.
+			Espelhos Parabólicos Ustores</small></p>
+            </td>
+          </tr>
+          <tr>
+            <td bgcolor="#B5C9D5" valign="top">
+            <p style="font-family: Arial; font-weight: normal;"><i><u><small>Descrição
+            </small></u></i><small>:
+			Peça de metal com dois refletores parabólicos e
+			uma lâmpada de alta potência.</small></p>
+            <p style="font-family: Arial; font-weight: normal;">
+            <small><i><u>Objetivo</u></i>:
+			Observar
+			a propriedade reflexiva do parabolóide de
+			revolução.</small></p>
+            </td>
+            <td bgcolor="#B5C9D5" width="188">
+            <p class="MsoNormal" style="text-align: center;" align="center"> <a href="../curvas/conicas/4_espelhos_ustores/espelhos_ustores.htm"><font color="#ffffff" size="2"><img class="imagem" style="border: 0px solid;" alt="Espelhos Parabólicos Ustores" src="../curvas/conicas/4_espelhos_ustores/c10_2.JPG" v:shapes="_x0000_s1060" /></font></a></p>
+            <h5><p align="center" style="font-family: Arial;"><small><small>Clique na imagem!</small></small></p></h5>
+			</td>
+          </tr>
+
+          <tr>
+            <td colspan="2" valign="top">&nbsp;</td>
+          </tr>
+		  
+          <tr>
+            <td colspan="2" bgcolor="#B5C9D5" valign="top">
+            <p style="font-family: Arial; font-weight: bold;"><small>Peça 019.
+			Mini-Golfe Parabólico</small></p>
+            </td>
+          </tr>
+		  
+          <tr>
+            <td bgcolor="#B5C9D5" valign="top">
+            <p style="font-family: Arial; font-weight: normal;"><i><u><small>Descrição
+            </small></u></i><small>:
+			Peça de madeira encapada em corvin preto acompanhada de
+			bolinha e taco.</small></p>            
+            <p style="font-family: Arial; font-weight: normal;">
+            <small><i><u>Objetivo</u></i>:
+			Observar
+			a propriedade reflexiva da parábola.</small></p>
+            </td>
+            <td bgcolor="#B5C9D5" width="188">  
+            <p class="MsoNormal" style="text-align: center;" align="center"> <a href="../curvas/conicas/5_minigolf_parabolico/minigolf_parabolico.htm"><font color="#ffffff" size="2"><img class="imagem2" style="border: 0px solid;" alt="Mini-Golfe Parabólico" src="../curvas/conicas/5_minigolf_parabolico/c11_11.JPG" v:shapes="_x0000_s1059" /></font></a></p>
+            <h5><p align="center" style="font-family: Arial;"><small><small>Clique na imagem!</small></small></p></h5>
+			</td>
+          </tr>
+		  
+          <tr>
+            <td colspan="2">&nbsp;</td>
+          </tr>
+		  
+          <tr>
+            <td colspan="2" bgcolor="#B5C9D5"> 
+            <p style="font-family: Arial; font-weight: bold;"><small>Peça 020.
+			Bilhar Elíptico</small></p>
+            </td>
+          </tr>		  
+          <tr>
+            <td bgcolor="#B5C9D5" valign="top">
+            <p style="font-family: Arial; font-weight: normal;"><i><u><small>Descrição
+            </small></u></i><small>:
+			Peça de madeira com acabamento tipo marfim e feltro interno
+			verde acompanhada de bolinha e taco.</small></p> 
+            <p style="font-family: Arial; font-weight: normal;">
+            <small><i><u>Objetivo</u></i>:
+			Observar
+			a propriedade reflexiva da elipse.</small></p>
+            </td>
+            <td bgcolor="#B5C9D5" width="188">            
+            <p class="MsoNormal" style="text-align: center;" align="center"> <a href="../curvas/conicas/6_bilhar_eliptico/bilhar_eliptico.htm"><font color="#ffffff" size="2"><img class="imagem" style="border: 0px solid;" alt="Bilhar Elíptico" src="../curvas/conicas/6_bilhar_eliptico/c12_30.JPG" v:shapes="_x0000_s1058" /></font></a></p>
+            <h5><p align="center" style="font-family: Arial;"><small><small>Clique na imagem!</small></small></p></h5>
+			</td>
+          </tr>
+
+          <tr>
+            <td colspan="2" valign="top">&nbsp;<br />
+            </td>
+          </tr>
+
+          <tr>
+            <td colspan="2" id="bordaAzul">
+            <p style="font-family: Arial; font-weight: bold;"><small>Subsetor:
+			Superfícies Regradas</small></p>
+            </td>
+          </tr>
+		  
+          <tr>
+            <td colspan="2">&nbsp;</td>
+          </tr>
+		  
+          <tr>
+            <td colspan="2" bgcolor="#B5C9D5" valign="top">
+            <p style="font-family: Arial; font-weight: bold;"><small>Peça 024.
+			Parabolóide Hiperbólico em Fios</small></p>  
+			</td>
+		  </tr>
+		  <tr>
+		    <td bgcolor="#B5C9D5" valign="top">
+            <p style="font-family: Arial; font-weight: normal;"><small><i><u>Descrição
+            </u></i>:
+			Peça de alumínio pintado em branco e fios
+			elásticos presos às hastes.</small></p>
+            <p style="font-family: Arial; font-weight: normal;">
+            <small><i><u>Objetivo</u></i>:
+			Observar como as cônicas podem gerar superfícies
+			regradas.</small></p>
+            </td>
+            <td bgcolor="#B5C9D5" width="188">
+            <p class="MsoNormal" style="text-align: center;" align="center"> <a href="../curvas/regradas/1_paraboloide_lastex/parabolide_lastex.htm"><font color="#ffffff" size="2"><img class="imagem" style="border: 0px solid;" alt="Parabolóide Hiperbólico em Fios" src="../curvas/regradas/1_paraboloide_lastex/c13_1.JPG" v:shapes="_x0000_s1057" /></font></a></p>
+            <h5><p align="center" style="font-family: Arial;"><small><small>Clique na imagem!</small></small></p></h5>
+			</td>
+          </tr>
+		  
+          <tr>
+            <td colspan="2" valign="top">&nbsp;</td>
+          </tr>
+
+          <tr>
+            <td colspan="2" bgcolor="#B5C9D5" valign="top">
+            <p style="font-family: Arial; font-weight: bold;"><small>Peça 025.
+			Parabolóide Hiperbólico em Placas</small></p>
+            </td>
+          </tr>		  
+          <tr>
+            <td bgcolor="#B5C9D5" valign="top">
+            <p style="font-family: Arial; font-weight: normal;"><small><i><u>Descrição
+            </u></i>:
+			Peça formada por placas de madeira entrelaçadas,
+			pintada dois tons de verde.</small></p>
+            <p style="font-family: Arial; font-weight: normal;">
+            <small><i><u>Objetivo</u></i>:
+			Observar como as cônicas podem gerar superfícies
+			regradas.</small></p>
+            </td>
+            <td bgcolor="#B5C9D5" width="188">
+            <p class="MsoNormal" style="text-align: center;" align="center"> <a href="../curvas/regradas/2_paraboloide_madeira/paraboloide_madeira.htm"><font color="#ffffff" size="2"><img class="imagem" style="border: 0px solid;" alt="Parabolóide Hiperbólico em Placas" src="../curvas/regradas/2_paraboloide_madeira/c14_1.JPG" v:shapes="_x0000_s1056" /></font></a></p>
+            <h5><p align="center" style="font-family: Arial;"><small><small>Clique na imagem!</small></small></p></h5>
+			</td>
+          </tr>
+		  
+          <tr>
+            <td colspan="2" valign="top">&nbsp;</td>
+          </tr>
+
+          <tr>
+            <td colspan="2" valign="top"  bgcolor="#B5C9D5"> 
+            <p style="font-family: Arial; font-weight: bold;"><small>Peça 029.
+			Hiperbolóide em Fios</small></p>
+            </td>
+          </tr>
+          <tr>
+            <td valign="top" bgcolor="#B5C9D5">
+            <p style="font-family: Arial; font-weight: normal;"><small><i><u>Descrição
+            </u></i>:
+			Peça de madeira com acabamento tipo marfim, pilares de
+			acrílico e fios elásticos presos às
+			bases uma das
+			quais sendo giratória.</small></p>           
+            <p style="font-family: Arial; font-weight: normal;">
+            <small><i><u>Objetivo</u></i>:
+			Observar como as cônicas podem gerar superfícies
+			regradas.</small></p>            
+            <p class="MsoNormal"><small> <font color="#ffffff" face="BankGothic Md BT" size="2"><span style="font-family: Verdana,Arial,Helvetica,sans-serif;">&nbsp;</span></font></small></p>
+            </td>
+            <td bgcolor="#B5C9D5" width="188">
+            <p class="MsoNormal" style="text-align: center;" align="center"> <a href="../curvas/regradas/3_hiperboloide_lastex/hiperboloide_lastex.htm"><font color="#ffffff" size="2"><img class="imagem2" style="border: 0px solid;" alt="Hiperbolóide em Fios" src="../curvas/regradas/3_hiperboloide_lastex/c16_1.JPG" v:shapes="_x0000_s1054" /></font></a></p>
+            <h5><p align="center" style="font-family: Arial;"><small><small>Clique na imagem!</small></small></p></h5>
+			</td>
+          </tr>
+
+          <tr>
+            <td colspan="2" rowspan="1"><br />
+            </td>
+          </tr>
+
+          <tr>
+            <td colspan="2" valign="top"  bgcolor="#B5C9D5"> 
+            <p style="font-family: Arial; font-weight: bold;"><small>Peça 030.
+			Hiperbolóide - Cubo
+			Rotatório</small></p>
+            </td>
+          </tr>
+          <tr>
+            <td valign="top" bgcolor="#B5C9D5">
+            <p style="font-family: Arial; font-weight: normal;"><small><i><u>Descrição
+            </u></i>:
+			Peça de madeira com acabamento tipo marfim, cubo
+			giratório de metal pintado em branco.</small></p>
+            <p style="font-family: Arial; font-weight: normal;">
+            <small><i><u>Objetivo</u></i>:
+			Observar como as cônicas podem gerar superfícies
+			regradas.</small></p>
+            </td>
+            <td bgcolor="#B5C9D5" width="188">
+            <p class="MsoNormal" style="text-align: center;" align="center"> <a href="../curvas/regradas/4_hiperboloide_cubo/hiperboloide_cubo.htm"><font color="#ffffff" size="2"><img class="imagem2" style="border: 0px solid;" alt="Hiperbolóide - Cubo Rotatório" src="../curvas/regradas/4_hiperboloide_cubo/c17_8.JPG" v:shapes="_x0000_s1053" /></font></a></p>
+            <h5><p align="center" style="font-family: Arial;"><small><small>Clique na imagem!</small></small></p></h5>
+			</td>
+          </tr>
+
+          <tr>
+            <td colspan="2" valign="top">&nbsp;</td>
+          </tr>
+
+          <tr>
+            <td colspan="2" bgcolor="#B5C9D5" valign="top">
+            <p style="font-family: Arial; font-weight: bold;"><small>Peça 028.
+			Hiperbolóide - Vareta
+			Rotatória</small></p>
+            </td>
+          </tr>
+          <tr>
+            <td bgcolor="#B5C9D5" valign="top">
+            <p style="font-family: Arial; font-weight: normal;"><small><i><u>Descrição
+            </u></i>:
+			Peça de madeira com acabamento tipo marfim,
+			acrílico com
+			fenda em forma de hipérbole, vareta guiada por uma
+			plataforma
+			circular giratória.</small></p>            
+            <p style="font-family: Arial; font-weight: normal;">
+            <small><i><u>Objetivo</u></i>:
+			Observar como as cônicas podem gerar superfícies
+			regradas.</small></p>
+            </td>
+            <td bgcolor="#B5C9D5" width="188">
+            <p class="MsoNormal" style="text-align: center;" align="center"> <a href="../curvas/regradas/5_hiperboloide_vareta/hiperboloide_vareta.htm"><font color="#ffffff" size="2"><img class="imagem" style="border: 0px solid;" alt="Hiperbolóide - Vareta Rotatória" src="../curvas/regradas/5_hiperboloide_vareta/c15_1.JPG" v:shapes="_x0000_s1055" /></font></a></p>
+            <h5><p align="center" style="font-family: Arial;"><small><small>Clique na imagem!</small></small></p></h5>
+			</td>
+          </tr>
+
+          <tr>
+            <td colspan="2" valign="top">&nbsp;<br />
+            </td>
+          </tr>
+		  
+          <tr>
+            <td colspan="2" id="bordaAzul">
+            <p style="font-family: Arial; font-weight: bold;"><small>Subsetor:
+			Curvas Transcendentes</small></p>
+            </td>
+          </tr>
+
+           <tr>
+            <td colspan="2" valign="top">&nbsp;<br />
+            </td>
+          </tr>
+
+          <tr>
+            <td colspan="2" bgcolor="#B5C9D5" valign="top">
+            <p style="font-family: Arial; font-weight: bold;"><small>Peça 032.
+			Ciclóide - Tautócrona e braquistócrona</small></p>
+			</td>
+          </tr>
+		  <tr>
+			<td bgcolor="#B5C9D5" valign="top">
+            <p style="font-family: Arial; font-weight: normal;"><small><i><u>Descrição
+            </u></i>:
+			Peça de madeira com acabamento tipo marfim acompanhando
+			bolinhas.</small></p>
+            <p style="font-family: Arial; font-weight: normal;">
+            <small><i><u>Objetivo</u></i>:
+			Observar
+			as propriedades tautócrona e braquistócrona da
+			ciclóide.</small></p>
+            </td>
+            <td bgcolor="#B5C9D5" width="188">
+            <p class="MsoNormal" style="text-align: center;" align="center"> <a href="../curvas/curvas_transcendentes/1_cicloide/cicloide.html"><font color="#ffffff" size="2"><img class="imagem" style="border: 0px solid;" alt="Ciclóide - Tautócrona e Braquistócrona" src="../curvas/curvas_transcendentes/1_cicloide/c18_1.JPG" v:shapes="_x0000_s1052" /></font></a></p>
+            <h5><p align="center" style="font-family: Arial;"><small><small>Clique na imagem!</small></small></p></h5>
+			</td>
+          </tr>
+		  
+          <tr>
+            <td colspan="2" valign="top">&nbsp;</td>
+          </tr>
+
+          <tr>
+            <td colspan="2" bgcolor="#B5C9D5" valign="top">
+            <p style="font-family: Arial; font-weight: bold;"><small>Peça 035.
+			Espiral de Arquimedes - Plataforma Rotatória</small></p>
+            </td>
+          </tr>
+
+          <tr>
+            <td bgcolor="#B5C9D5" valign="top">
+            <p style="font-family: Arial; font-weight: normal;"><small><i><u>Descrição
+            </u></i>:
+			Peça de madeira com acabamento tipo marfim,
+			plastificação superior na cor preta, plataforma
+			circular
+			em fórmica branca sustentada por um motor</small></p>            
+            <p style="font-family: Arial; font-weight: normal;">
+            <small><i><u>Objetivo</u></i>:
+			Construir
+				de maneira simples a espiral de Arquimedes.</small></p>
+            </td>
+            <td bgcolor="#B5C9D5" width="188">
+            <p class="MsoNormal" style="text-align: center;" align="center"> <a href="../curvas/curvas_transcendentes/2_espiral_arquimedes/espiral_arquimedes.html"><font color="#ffffff" size="2"><img class="imagem" style="border: 0px solid;" alt="Espiral de Arquimedes - Plataforma Rotatória" src="../curvas/curvas_transcendentes/2_espiral_arquimedes/c19_3.JPG" v:shapes="_x0000_s1051" /></font></a></p>
+            <h5><p align="center" style="font-family: Arial;"><small><small>Clique na imagem!</small></small></p></h5>
+			</td>
+          </tr>
+		  
+      </table>
+
+      <table style="width: 547px;" class="MsoNormalTable" border="0" cellpadding="0" cellspacing="0">
+
+        <tbody>
+          <tr style="height: 34.85pt;">
+            <td colspan="2">
+            <h3><span style="font-family: Arial; font-weight: bold;"><small>Setor:
+			Simetrias Planas</small></span></h3>
+            <br />
+            </td>
+          </tr>
+		  
+          <tr>
+            <td colspan="2" id="bordaAzul"> 
+            <p style="font-family: Arial; font-weight: bold;"><small>Subsetor:
+			Conceito</small></p>
+            </td>
+          </tr>
+		  
+          <tr>
+            <td colspan="2" rowspan="1"><br />
+            </td>
+          </tr>
+		  
+          <tr>
+            <td colspan="2" bgcolor="#B5C9D5" valign="top">
+            <p style="font-family: Arial; font-weight: bold;"><small>#1. Repetição de Padrão</small></p>
+            </td>
+          </tr>		  
+          <tr>
+            <td bgcolor="#B5C9D5" valign="top" width="360">
+            <p style="font-family: Arial; font-weight: normal;"><small><i><u>Descrição
+            </u></i>:
+			Mesa composta por acrílico com figura impressa em cores
+			azul,
+			amarelo e vermelho acompanhado por padrões impressos em MDF.</small></p>
+            <p style="font-family: Arial; font-weight: normal;">
+            <small><i><u>Objetivo</u></i>:
+			Reconstruir
+			uma figura simétrica mediante a
+			aplicação de
+			certas transformações sobre os padrões
+			dados.</small></p>
+            </td>
+            <td bgcolor="#B5C9D5" width="187">
+            <p class="MsoNormal" style="text-align: center;" align="center"> <a href="../simetrias/conceito/1_repeticao/repeticao.html"><font color="#ffffff"><img class="imagem" style="border: 0px solid;" alt="Simetrias - Repetição de Padrão" title="Simetrias - Repetição de Padrão" src="../simetrias/conceito/1_repeticao/s02_22.JPG" v:shapes="_x0000_s1050" /></font></a></p>
+            <h5><p align="center" style="font-family: Arial;"><small><small>Clique na imagem!</small></small></p></h5>
+			</td>
+          </tr>
+
+          <tr>
+            <td colspan="2" valign="top">&nbsp;</td>
+          </tr>
+		  
+		  <tr>
+            <td colspan="2" bgcolor="#B5C9D5" valign="top">
+            
+            <p style="font-family: Arial; font-weight: bold;"><small>#2. Invariância</small></p>
+            </td>
+          </tr>		  
+          <tr>
+            <td bgcolor="#B5C9D5" valign="top" width="360">  
+            <p style="font-family: Arial; font-weight: normal;"><small><i><u>Descrição
+            </u></i>:
+			Mesa composta por acrílico com figura impressa em cores
+			azul,
+			amarelo e vermelho acompanhado de duas peças
+			também de
+			acrílico (1 quadrada e 1 retangular).</small></p>
+            <p style="font-family: Arial; font-weight: normal;">
+            <small><i><u>Objetivo</u></i>:
+			Visualizar a invariância de uma figura
+			simétrica mediante certas
+			transformações.</small></p>
+            </td>
+            <td bgcolor="#B5C9D5" width="187">
+            <p class="MsoNormal" style="text-align: center;" align="center"> <a href="../simetrias/conceito/2_invariancia/invariancia.html"><font color="#ffffff"><img class="imagem" style="border: 0px solid;" alt="Simetrias - Invariância" title="Simetrias - Invariância" src="../simetrias/conceito/2_invariancia/s01_6.JPG" v:shapes="_x0000_s1050" /></font></a></p>
+            <h5><p align="center" style="font-family: Arial;"><small><small>Clique na imagem!</small></small></p></h5>
+			</td>
+          </tr>
+
+          <tr>
+            <td colspan="2" valign="top">&nbsp;<br />
+            </td>
+          </tr>
+
+          <tr>
+            <td colspan="2" id="bordaAzul">
+            <p style="font-family: Arial; font-weight: bold;"><small>Subsetor:
+			Isometrias Planas</small></p>
+            </td>
+          </tr>
+		  
+		  <tr>
+            <td colspan="2" valign="top">&nbsp;<br />
+            </td>
+          </tr>
+		  
+          <tr>
+            <td colspan="2" bgcolor="#B5C9D5" valign="top">            
+            <p style="font-family: Arial; font-weight: bold;"><small>Peça 042. Mecanismo Articulado - Translação</small></p>
+            </td>
+          </tr>	
+          <tr>
+            <td bgcolor="#B5C9D5" valign="top" width="360">
+            <p style="font-family: Arial; font-weight: normal;"><small><i><u>Descrição
+            </u></i>:
+			Peça de madeira MDF em
+			fórmica branca com articulações em
+			barras de alumínio.</small></p>
+            <p style="font-family: Arial; font-weight: normal;">
+            <small><i><u>Objetivo</u></i>:
+			Descrever o movimento de
+			translação.</small></p>
+            <p class="MsoNormal"><span style="font-family: Verdana,Arial,Helvetica,sans-serif;"><small>
+            <font color="#ffffff" face="Verdana, Arial, Helvetica, sans-serif" size="2">&nbsp;</font></small></span></p>
+            </td>
+            <td bgcolor="#B5C9D5" width="187">
+            <p class="MsoNormal" style="text-align: center;" align="center"> <a href="../simetrias/isometrias/1_translacao/translacao.html"><font color="#ffffff"><img class="imagem" style="border: 0px solid;" alt="Sistema Articulado - Translação" title="Sistema Articulado - Translação" src="../simetrias/isometrias/1_translacao/s03_3.JPG" v:shapes="_x0000_s1048" /></font></a></p>
+            <h5><p align="center" style="font-family: Arial;"><small><small>Clique na imagem!</small></small></p></h5>
+			</td>
+          </tr>
+
+          <tr>
+            <td colspan="2" valign="top">&nbsp;</td>
+          </tr>
+
+		  <tr>
+            <td colspan="2" bgcolor="#B5C9D5" valign="top">            
+            <p style="font-family: Arial; font-weight: bold;"><small>Peça 043. Mecanismo Articulado - Rotação</small></p>
+            </td>
+          </tr>			  
+          <tr>
+            <td bgcolor="#B5C9D5" valign="top" width="360">
+            <p style="font-family: Arial; font-weight: normal;"><small><i><u>Descrição
+            </u></i>:
+			Peça de madeira MDF em
+			fórmica branca com articulações em
+			barras de alumínio.</small></p>            
+            <p style="font-family: Arial; font-weight: normal;">
+            <small><i><u>Objetivo</u></i>:
+			Descrever o movimento de
+			rotação.</small></p>
+            </td>
+            <td bgcolor="#B5C9D5" width="187">   
+            <p class="MsoNormal" style="text-align: center;" align="center"> <a href="../simetrias/isometrias/2_rotacao/rotacao.html"><font color="#ffffff"> <img class="imagem" style="border: 0px solid;" alt="Sistema Articulado - Rotação" title="Sistema Articulado - Rotação" src="../simetrias/isometrias/2_rotacao/s04_5.JPG" v:shapes="_x0000_s1047" /></font></a></p>
+            <h5><p align="center" style="font-family: Arial;"><small><small>Clique na imagem!</small></small></p></h5>
+			</td>
+          </tr>
+
+          <tr>
+            <td colspan="2" valign="top">&nbsp;</td>
+          </tr>
+		  
+          <tr>
+            <td colspan="2" bgcolor="#B5C9D5" valign="top">            
+            <p style="font-family: Arial; font-weight: bold;"><small>Peça 044. Mecanismo Articulado - Reflexão</small></p>
+            </td>
+          </tr>
+          <tr>
+            <td bgcolor="#B5C9D5" valign="top" width="360">
+            <p style="font-family: Arial; font-weight: normal;"><small><i><u>Descrição
+            </u></i>:
+			Peça de madeira MDF em
+			fórmica branca com articulações em
+			barras de alumínio.</small></p>            
+            <p style="font-family: Arial; font-weight: normal;">
+            <small><i><u>Objetivo</u></i>:
+			Descrever o movimento de reflexão.</small></p>
+            </td>
+            <td bgcolor="#B5C9D5" width="187">
+            <p class="MsoNormal" style="text-align: center;" align="center"> <a href="../simetrias/isometrias/3_reflexao/reflexao.html"><font color="#ffffff"> <img class="imagem" style="border: 0px solid;" alt="Sistema Articulado - Reflexão" title="Sistema Articulado - Reflexão" src="../simetrias/isometrias/3_reflexao/s05_11.JPG" v:shapes="_x0000_s1046" /></font></a></p>
+            <h5><p align="center" style="font-family: Arial;"><small><small>Clique na imagem!</small></small></p></h5>
+			</td>
+          </tr>
+
+          <tr>
+            <td colspan="2" valign="top">&nbsp;</td>
+          </tr>
+
+          <tr>
+            <td colspan="2" bgcolor="#B5C9D5" valign="top">
+            <p style="font-family: Arial; font-weight: bold;"><small>Peça 045. Sistema Articulado - Glissoreflexão</small></p>
+            </td>
+          </tr>
+          <tr>
+            <td bgcolor="#B5C9D5" valign="top" width="360">
+            <p style="font-family: Arial; font-weight: normal;"><small><i><u>Descrição
+            </u></i>:
+			Peça de madeira MDF em
+			fórmica branca com articulações em
+			barras de alumínio.</small></p>            
+            <p style="font-family: Arial; font-weight: normal;">
+            <small><i><u>Objetivo</u></i>:
+			Descrever o movimento de glissoreflexão.</small></p>
+            </td>
+            <td bgcolor="#B5C9D5" width="187">
+            <p class="MsoNormal" style="text-align: center;" align="center"> <a href="../simetrias/isometrias/4_glissoreflexao/glissoreflexao.html"><font color="#ffffff"> <img class="imagem" style="border: 0px solid;" alt="Sistema Articulado - Glissoreflexão" title="Sistema Articulado - Glissoreflexão" src="../simetrias/isometrias/4_glissoreflexao/s06_4.JPG" v:shapes="_x0000_s1045" /></font></a></p>
+            <h5><p align="center" style="font-family: Arial;"><small><small>Clique na imagem!</small></small></p></h5>
+			</td>
+          </tr>
+
+          <tr>
+            <td colspan="2" rowspan="1"><br />
+            </td>
+          </tr>
+
+          <tr>
+            <td colspan="2" bgcolor="#B5C9D5" valign="top">
+           <p style="font-family: Arial; font-weight: bold;"><small>#5. Espelhos em ângulo Reto</small></p>
+            </td>
+          </tr>
+          <tr>
+            <td bgcolor="#B5C9D5" valign="top" width="360">
+            <p style="font-family: Arial; font-weight: normal;"><small><i><u>Descrição
+            </u></i>:
+			Peça de madeira MDF com acabamento do
+			tipo marfim e espelhos.</small></p>
+            <p style="font-family: Arial; font-weight: normal;">
+            <small><i><u>Objetivo</u></i>:
+			Perceber
+			que a composição de duas reflexões
+			(através
+			de dois espelhos em ângulo reto) forma uma
+			rotação
+			de meio giro, o que difere da reflexão.</small></p>
+            </td>
+            <td bgcolor="#B5C9D5" width="187">
+            <p class="MsoNormal" style="text-align: center;" align="center"> <a href="../simetrias/isometrias/5_espelhos/espelhos.html"><font color="#ffffff"> <img class="imagem" style="border: 0px solid;" alt="Espelhos em ângulo Reto" title="Espelhos em ângulo Reto" src="../simetrias/isometrias/5_espelhos/s18_4.JPG" v:shapes="_x0000_s1033" /></font></a></p>
+            <h5><p align="center" style="font-family: Arial;"><small><small>Clique na imagem!</small></small></p></h5>
+			</td>
+          </tr>
+
+          <tr>
+            <td colspan="2" rowspan="1"><br />
+            </td>
+          </tr>
+
+          <tr>
+            <td colspan="2" id="bordaAzul">
+            <p style="font-family: Arial; font-weight: bold;"><small>Subsetor:
+			Frisos e Rosetas</small></p>
+            </td>
+          </tr>
+
+          <tr>
+            <td colspan="2" rowspan="1"><br />
+            </td>
+          </tr>
+
+          <tr>
+            <td colspan="2" bgcolor="#B5C9D5" valign="top">
+            <p style="font-family: Arial; font-weight: bold;"><small>#1. Espelho Vazado</small></p>
+            </td>
+          </tr>
+          <tr>
+            <td bgcolor="#B5C9D5" valign="top" width="360">
+            <p style="font-family: Arial; font-weight: normal;"><small><i><u>Descrição
+            </u></i>:
+			Peça de madeira MDF com acabamento do
+			tipo marfim e espelho.</small></p>
+            <p style="font-family: Arial; font-weight: normal;">
+            <small><i><u>Objetivo</u></i>:
+			Observar a simetria de reflexão
+			através de um espelho e mediante uma abertura para deslizar
+			a figura.</small></p>
+            </td>
+            <td bgcolor="#B5C9D5" width="187">
+            <p class="MsoNormal" style="text-align: center;" align="center"> <a href="../simetrias/frisos_rosetas/1_espelho_vazado/espelho_vazado.html"><font color="#ffffff"> <img class="imagem" style="border: 0px solid;" alt="Espelho Vazado" title="Espelho Vazado" src="../simetrias/frisos_rosetas/1_espelho_vazado/s07_5.JPG" v:shapes="_x0000_s1044" /></font></a></p>
+            <h5><p align="center" style="font-family: Arial;"><small><small>Clique na imagem!</small></small></p></h5>
+			</td>
+          </tr>
+
+          <tr>
+            <td colspan="2" valign="top">&nbsp;</td>
+          </tr>
+
+          <tr>
+            <td colspan="2" bgcolor="#B5C9D5" valign="top"> 
+            <p style="font-family: Arial; font-weight: bold;"><small>Peça 047. Espelhos Articulados</small></p>
+            </td>
+          </tr>		  
+          <tr>
+            <td bgcolor="#B5C9D5" valign="top" width="360">
+            <p style="font-family: Arial; font-weight: normal;"><small><i><u>Descrição
+            </u></i>: Peça de madeira MDF (com
+			uma parte
+			móvel) com acabamento do tipo marfim e espelhos.</small></p>
+            <p style="font-family: Arial; font-weight: normal;">
+            <small><i><u>Objetivo</u></i>:
+			Observar a simetria de reflexão e
+			rotação através da
+			articulação de dois espelhos.</small></p>
+            </td>
+            <td bgcolor="#B5C9D5" width="187">
+            <p class="MsoNormal" style="text-align: center;" align="center"> <a href="../simetrias/frisos_rosetas/2_espelhos_articulados/espelhos_articulados.html"><font color="#ffffff"> <img class="imagem" style="border: 0px solid;" alt="Espelhos Articulados" title="Espelhos Articulados" src="../simetrias/frisos_rosetas/2_espelhos_articulados/s08_15.JPG" v:shapes="_x0000_s1043" /></font></a></p>
+			<h5><p align="center" style="font-family: Arial;"><small><small>Clique na imagem!</small></small></p></h5>
+			</td>
+          </tr>
+
+          <tr>
+            <td colspan="2" valign="top">&nbsp;</td>
+          </tr>
+
+          <tr>
+            <td colspan="2" bgcolor="#B5C9D5" valign="top">
+            <p style="font-family: Arial; font-weight: bold;"><small>Peça 048. Espelhos Paralelos</small></p>
+            </td>
+          </tr>		  
+          <tr>
+            <td bgcolor="#B5C9D5" valign="top" width="360">
+            <p style="font-family: Arial; font-weight: normal;"><small><i><u>Descrição
+            </u></i>:
+			Peça de madeira MDF com acabamento do
+			tipo marfim e espelhos.</small></p>            
+            <p style="font-family: Arial; font-weight: normal;">
+            <small><i><u>Objetivo</u></i>:
+			Visualizar simetrias de reflexão e
+			translação através de dois espelhos
+			dispostos paralelamente.</small></p>
+            </td>
+            <td bgcolor="#B5C9D5" width="187">
+            <p class="MsoNormal" style="text-align: center;" align="center"> <a href="../simetrias/frisos_rosetas/3_espelhos_paralelos/espelhos_paralelos.html"><font color="#ffffff"> <img class="imagem" style="border: 0px solid;" alt="Espelhos Paralelos" title="Espelhos Paralelos" src="../simetrias/frisos_rosetas/3_espelhos_paralelos/s09_4.JPG" v:shapes="_x0000_s1042" /></font></a></p>
+            <h5><p align="center" style="font-family: Arial;"><small><small>Clique na imagem!</small></small></p></h5>
+			</td>
+          </tr>
+
+          <tr>
+            <td colspan="2" valign="top">&nbsp;</td>
+          </tr>
+
+          <tr>
+            <td colspan="2" bgcolor="#B5C9D5" valign="top">
+            <p style="font-family: Arial; font-weight: bold;"><small>Peça 049. Câmara de Três Espelhos</small></p>
+            </td>
+          </tr>	
+          <tr>
+            <td bgcolor="#B5C9D5" height="93" valign="top" width="360">
+            <p style="font-family: Arial; font-weight: normal;"><small><i><u>Descrição
+            </u></i>:
+			Peça de madeira MDF com acabamento do
+			tipo marfim e espelhos.</small></p>
+            <p style="font-family: Arial; font-weight: normal;">
+            <small><i><u>Objetivo</u></i>:
+			Visualizar simetrias de reflexão,
+			translação e glissoreflexão
+			através de três espelhos.</small></p>
+            </td>
+            <td bgcolor="#B5C9D5" width="187">
+            <p class="MsoNormal" style="text-align: center;" align="center"> <a href="../simetrias/frisos_rosetas/4_camara_tres_espelhos/camara_tres_espelhos.html"><font color="#ffffff"> <img class="imagem" style="border: 0px solid;" alt="Câmara de Três Espelhos" title="Câmara de Três Espelhos" src="../simetrias/frisos_rosetas/4_camara_tres_espelhos/s10_6.JPG" v:shapes="_x0000_s1041" /></font></a></p>
+            <h5><p align="center" style="font-family: Arial;"><small><small>Clique na imagem!</small></small></p></h5>
+			</td>
+          </tr>
+		  
+          <tr>
+            <td colspan="2" valign="top">&nbsp;</td>
+          </tr>
+
+          <tr>
+            <td colspan="2" id="bordaAzul">            
+            <p style="font-family: Arial; font-weight: bold;"><small>Subsetor:
+			Papéis de Parede</small></p>
+            </td>
+          </tr>
+
+          <tr>
+            <td colspan="2" valign="top">&nbsp;</td>
+          </tr>
+
+          <tr>
+            <td colspan="2" bgcolor="#B5C9D5" valign="top">
+            <p style="font-family: Arial; font-weight: bold;"><small>Peça 058. Câmara Quadrada - Fissura</small></p>
+            </td>
+          </tr>	
+          <tr>
+            <td bgcolor="#B5C9D5" height="93" valign="top" width="360">
+            <p style="font-family: Arial; font-weight: normal;"><small><i><u>Descrição
+            </u></i>:
+			Peça de madeira MDF com acabamento do
+			tipo marfim e espelhos.</small></p>            
+            <p style="font-family: Arial; font-weight: normal;">
+            <small><i><u>Objetivo</u></i>:
+			Visualizar
+			simetrias de reflexão, rotação e
+			translação através de quatro
+			espelhos
+			dispostos em forma de quadrado.</small></p>
+            </td>
+            <td bgcolor="#B5C9D5" width="187">
+            <p class="MsoNormal" style="text-align: center;" align="center"> <a href="../simetrias/papeis/1_camaras_quadradas/camaras_quadradas.html"><font color="#ffffff"> <img class="imagem" style="border: 0px solid;" alt="Câmara Quadrada" title="Câmara Quadrada" src="../simetrias/papeis/1_camaras_quadradas/s15_1.JPG" v:shapes="_x0000_s1037" /></font></a></p>
+            <h5><p align="center" style="font-family: Arial;"><small><small>Clique na imagem!</small></small></p></h5>
+			</td>
+          </tr>
+		  
+          <tr>
+            <td colspan="2" valign="top">&nbsp;</td>
+          </tr>
+		  
+          <tr>
+            <td colspan="2" bgcolor="#B5C9D5" valign="top">
+            <p style="font-family: Arial; font-weight: bold;"><small>Peça 133. Câmara Quadrada - 2 Fissuras</small></p>
+            </td>
+          </tr>	
+          <tr>
+            <td bgcolor="#B5C9D5" height="93" valign="top" width="360">
+            <p style="font-family: Arial; font-weight: normal;"><small><i><u>Descrição
+            </u></i>:
+			Peça de madeira MDF com acabamento do
+			tipo marfim e espelhos.</small></p>
+            <p style="font-family: Arial; font-weight: normal;">
+            <small><i><u>Objetivo</u></i>:
+			Visualizar
+			simetrias de reflexão, rotação e
+			translação através de quatro
+			espelhos
+			dispostos em forma de quadrado.</small></p>
+            </td>
+            <td bgcolor="#B5C9D5" width="187">
+            <p class="MsoNormal" style="text-align: center;" align="center"> <a href="../simetrias/papeis/1_camaras_quadradas/camaras_quadradas.html"><font color="#ffffff"> <img class="imagem" style="border: 0px solid;" alt="Câmara Quadrada" title="Câmara Quadrada" src="../simetrias/papeis/1_camaras_quadradas/s15_1.JPG" v:shapes="_x0000_s1037" /></font></a></p>
+            <h5><p align="center" style="font-family: Arial;"><small><small>Clique na imagem!</small></small></p></h5>
+			</td>
+          </tr>
+
+          <tr>
+            <td colspan="2" valign="top">&nbsp;</td>
+          </tr>
+
+          <tr>
+            <td colspan="2" bgcolor="#B5C9D5" valign="top">
+            <p style="font-family: Arial; font-weight: bold;"><small>Peça 059. Câmara Retangular</small></p>
+            </td>
+          </tr>	
+          <tr>
+            <td bgcolor="#B5C9D5" valign="top" width="360">
+            <p style="font-family: Arial; font-weight: normal;"><small><i><u>Descrição
+            </u></i>:
+			Peça de madeira MDF com acabamento do
+			tipo marfim e espelhos.</small></p>
+            <p style="font-family: Arial; font-weight: normal;">
+            <small><i><u>Objetivo</u></i>:
+			Visualizar
+			simetrias de reflexão, rotação e
+			translação através de três
+			espelhos
+			dispostos em forma de retângulo.</small></p>
+            </td>
+            <td bgcolor="#B5C9D5" valign="top" width="187">
+            <p class="MsoNormal" style="text-align: center;" align="center"> <a href="../simetrias/papeis/2_camara_retangular/camaras_retangulares.html"><font color="#ffffff"> <img class="imagem" style="border: 0px solid;" alt="Câmara Retangular" title="Câmara Retangular" src="../simetrias/papeis/2_camara_retangular/s16_10.JPG" v:shapes="_x0000_s1035" /></font></a></p>
+            <h5><p align="center" style="font-family: Arial;"><small><small>Clique na imagem!</small></small></p></h5>
+			</td>
+          </tr>
+
+          <tr>
+            <td colspan="2" rowspan="1"><br />
+            </td>
+          </tr>
+
+          <tr>
+            <td colspan="2" bgcolor="#B5C9D5" valign="top">
+            <p style="font-family: Arial; font-weight: bold;"><small>Peça 055. Câmara Equilátera</small></p>
+            </td>
+          </tr>			  
+          <tr>
+            <td bgcolor="#B5C9D5" valign="top" width="360">            
+            <p style="font-family: Arial; font-weight: normal;"><small><i><u>Descrição
+            </u></i>:
+			Peça de madeira MDF com acabamento do
+			tipo marfim e espelhos.</small></p>            
+            <p style="font-family: Arial; font-weight: normal;">
+            <small><i><u>Objetivo</u></i>:
+			Visualizar
+			simetrias de reflexão, rotação e
+			translação através de três
+			espelhos
+			dispostos em forma de triângulo
+			equilátero.</small></p>
+            </td>
+           <td bgcolor="#B5C9D5" valign="top" width="187">
+            <p class="MsoNormal" style="text-align: center;" align="center"> <a href="../simetrias/papeis/3_camara_equilatera/camaras_equilateras.html"><font color="#ffffff"> <img class="imagem2" style="border: 0px solid;" alt="Câmara Triangular Equilátera" title="Câmara Triangular Equilátera" src="../simetrias/papeis/3_camara_equilatera/s11_8.JPG" v:shapes="_x0000_s1040" /></font></a></p>
+            <h5><p align="center" style="font-family: Arial;"><small><small>Clique na imagem!</small></small></p></h5>
+			</td>
+          </tr>
+
+          <tr>
+            <td colspan="2" valign="top">&nbsp;</td>
+          </tr>
+
+          <tr>
+            <td colspan="2" bgcolor="#B5C9D5" valign="top">
+            <p style="font-family: Arial; font-weight: bold;"><small>Peça 056. Câmara Isósceles</small></p>
+            </td>
+          </tr>			  
+          <tr>
+            <td bgcolor="#B5C9D5" height="108" valign="top" width="360">
+            <p style="font-family: Arial; font-weight: normal;"><small><i><u>Descrição
+            </u></i>: Peça de madeira MDF com
+			acabamento do
+			tipo marfim e espelhos.</small></p>
+            <p style="font-family: Arial; font-weight: normal;">
+            <small><i><u>Objetivo</u></i>:
+			Visualizar
+			simetrias de reflexão, rotação e
+			translação através de três
+			espelhos
+			dispostos em forma de triângulo retângulo
+			isósceles.</small></p>
+            </td>
+            <td bgcolor="#B5C9D5" width="187">
+            <p class="MsoNormal" style="text-align: center;" align="center"> <a href="../simetrias/papeis/4_camara_isosceles/camara_isosceles.html"><font color="#ffffff"> <img class="imagem" style="border: 0px solid;" alt="Câmara Triangular Isósceles" title="Câmara Triangular Isósceles" src="../simetrias/papeis/4_camara_isosceles/s12_6.JPG" v:shapes="_x0000_s1039" /></font></a></p>
+            <h5><p align="center" style="font-family: Arial;"><small><small>Clique na imagem!</small></small></p></h5>
+			</td>
+          </tr>
+
+          <tr>
+            <td colspan="2" valign="top">&nbsp;</td>
+          </tr>
+
+          <tr>
+            <td colspan="2" bgcolor="#B5C9D5" valign="top">
+            
+            <p style="font-family: Arial; font-weight: bold;"><small>Peça 057. Câmara Escalena</small></p>
+            </td>
+          </tr>			  
+          <tr>
+            <td bgcolor="#B5C9D5" valign="top" width="360">
+            <p style="font-family: Arial; font-weight: normal;"><small><i><u>Descrição
+            </u></i>: Peça de madeira MDF com
+			acabamento do
+			tipo marfim e espelhos.</small></p>
+            <p style="font-family: Arial; font-weight: normal;">
+            <small><i><u>Objetivo</u></i>:
+			Visualizar
+			simetrias de reflexão, rotação e
+			translação através de três
+			espelhos
+			dispostos em forma de triângulo retângulo com
+			ângulos
+			de</small></p>
+            </td>
+            <td bgcolor="#B5C9D5" width="187">
+            <p class="MsoNormal" style="text-align: center;" align="center"> <a href="../simetrias/papeis/5_camara_escalena/camara_escalena.html"><font color="#ffffff"> <img class="imagem" style="border: 0px solid;" alt="Câmara Triangular Escalena" title="Câmara Triangular Escalena" src="../simetrias/papeis/5_camara_escalena/s13_3.JPG" v:shapes="_x0000_s1038" /></font></a></p>
+            <h5><p align="center" style="font-family: Arial;"><small><small>Clique na imagem!</small></small></p></h5>
+			</td>
+          </tr>
+
+          <tr>
+            <td colspan="2" valign="top">&nbsp;</td>
+          </tr>
+
+          <tr>
+            <td colspan="2" bgcolor="#B5C9D5" valign="top">            
+            <p style="font-family: Arial; font-weight: bold;"><small>Peça 060. Gaiola de Espelhos</small></p>
+            </td>
+          </tr>			  
+          <tr>
+            <td bgcolor="#B5C9D5" valign="top" width="360">
+            <p style="font-family: Arial; font-weight: normal;"><small><i><u>Descrição
+            </u></i>:
+			Peça de madeira MDF com acabamento do
+			tipo marfim e espelhos.</small></p>
+            <p style="font-family: Arial; font-weight: normal;">
+            <small><i><u>Objetivo</u></i>:
+			Visualizar
+			simetrias de reflexão, rotação e
+			translação através de três
+			espelhos
+			dispostos em forma de triângulo
+			equilátero. Isto
+			ocorre quando o visitante se posiciona dentro da câmara.</small></p>
+            </td>
+            <td bgcolor="#B5C9D5" valign="top" width="187">
+            <p class="MsoNormal" style="text-align: center;" align="center"> <a href="../simetrias/papeis/6_gaiola_equilatera/gaiola_equilatera.html"><font color="#ffffff"> <img class="imagem2" style="border: 0px solid;" alt="Gaiola Triangular Equilátera" title="Gaiola Triangular Equilátera" src="../simetrias/papeis/6_gaiola_equilatera/s17_8.JPG" v:shapes="_x0000_s1034" /></font></a></p>
+            <h5><p align="center" style="font-family: Arial;"><small><small>Clique na imagem!</small></small></p></h5>
+			</td>
+          </tr>
+
+          <tr>
+			<td colspan="2" valign="top">&nbsp;</td>
+          </tr>
+
+          <tr>
+            <td colspan="2" id="bordaAzul"> 
+            <p style="font-family: Arial; font-weight: bold;"><small>Subsetor:
+			Reconhecimento</small></p>
+            </td>
+          </tr>
+
+          <tr>
+            <td colspan="2" rowspan="1"><br />
+            </td>
+          </tr>
+
+          <tr>
+            <td colspan="2" bgcolor="#B5C9D5" valign="top">
+			<p style="font-family: Arial; font-weight: bold;"><small>Peça 062. Translação</small></p>
+            </td>
+          </tr>
+          <tr>
+            <td bgcolor="#B5C9D5" valign="top" width="360">
+            <p style="font-family: Arial; font-weight: normal;"><small><i><u>Descrição
+            </u></i>:
+			Peça constituída de
+			articulações em alumínio encaixadas
+			sobre uma mesa.</small></p>
+            <p style="font-family: Arial; font-weight: normal;">
+            <small><i><u>Objetivo</u></i>:
+			Descobrir se uma dada figura possui ou
+			não simetria de translação.</small></p>
+            </td>
+            <td bgcolor="#B5C9D5" width="187">
+            <p class="MsoNormal" style="text-align: center;" align="center"> <a href="../simetrias/reconhecimento/1_translacoes/translacoes.html"><font color="#ffffff"> <img class="imagem" style="border: 0px solid;" alt="Reconhecimento - Translações" title="Reconhecimento - Translações" src="../simetrias/reconhecimento/1_translacoes/s19_3.JPG" v:shapes="_x0000_s1032" /></font></a></p>
+            <h5><p align="center" style="font-family: Arial;"><small><small>Clique na imagem!</small></small></p></h5>
+			</td>
+          </tr>
+
+          <tr>
+            <td><br />
+            </td>
+            <td></td>
+          </tr>
+		  
+          <tr>
+            <td colspan="2" bgcolor="#B5C9D5" valign="top">
+            <p style="font-family: Arial; font-weight: bold;"><small>Peça 066. Reflexão</small></p>
+            </td>
+          </tr>
+          <tr>
+            <td bgcolor="#B5C9D5" valign="top" width="360">
+            <p style="font-family: Arial; font-weight: normal;"><small><i><u>Descrição
+            </u></i>:
+			Peça de madeira MDF com acabamento do
+			tipo marfim e haste de ferro pintada em branco.</small></p>
+            <p style="font-family: Arial; font-weight: normal;">
+            <small><i><u>Objetivo</u></i>:
+			Descobrir se uma dada figura possui ou
+			não simetria de reflexão.</small></p>
+            </td>
+            <td bgcolor="#B5C9D5" width="187">
+            <p class="MsoNormal" style="text-align: center;" align="center"> <a href="../simetrias/reconhecimento/2_reflexoes/reflexoes.html"><font color="#ffffff"> <img class="imagem" style="border: 0px solid;" alt="Reconhecimento - Reflexões" title="Reconhecimento - Reflexões" src="../simetrias/reconhecimento/2_reflexoes/s23_7.JPG" v:shapes="_x0000_s1028" /></font></a></p>
+            <h5><p align="center" style="font-family: Arial;"><small><small>Clique na imagem!</small></small></p></h5>
+			</td>
+          </tr>
+
+          <tr>
+            <td colspan="2" valign="top">&nbsp;</td>
+          </tr>
+
+		  <tr>
+            <td colspan="2" bgcolor="#B5C9D5" valign="top">
+            <p style="font-family: Arial; font-weight: bold;"><small>Peça 063. Rotação 1</small></p>
+            </td>
+          </tr>
+          <tr>
+            <td bgcolor="#B5C9D5" valign="top" width="360">
+            <p style="font-family: Arial; font-weight: normal;"><small><i><u>Descrição
+            </u></i>:
+			Peça de madeira MDF com acabamento do
+			tipo marfim e hastes de ferro pintadas em branco</small></p>
+            <p style="font-family: Arial; font-weight: normal;">
+            <small><i><u>Objetivo</u></i>:
+			Descobrir se uma dada figura possui ou
+			não simetria de rotação de
+			ângulos 90 ou 180 graus.</small></p>
+            </td>
+            <td bgcolor="#B5C9D5" width="187">
+            <p class="MsoNormal" style="text-align: center;" align="center"> <a href="../simetrias/reconhecimento/3_rotacoes/rotacoes.html"><font color="#ffffff"> <img class="imagem" style="border: 0px solid;" alt="Reconhecimento - Rotações" title="Reconhecimento - Rotações" src="../simetrias/reconhecimento/3_rotacoes/s20_8.JPG" v:shapes="_x0000_s1031" /></font></a></p>
+            <h5><p align="center" style="font-family: Arial;"><small><small>Clique na imagem!</small></small></p></h5>
+			</td>
+          </tr>
+
+          <tr>
+            <td colspan="2" valign="top">&nbsp;</td>
+          </tr>
+
+          <tr>
+            <td colspan="2" bgcolor="#B5C9D5" valign="top">
+            <p style="font-family: Arial; font-weight: bold;"><small>Peça 064. Rotação 2</small></p>
+            </td>
+          </tr>	  
+          <tr>
+            <td bgcolor="#B5C9D5" valign="top" width="360">
+            <p style="font-family: Arial; font-weight: normal;"><small><i><u>Descrição
+            </u></i>:
+			Peça de madeira MDF com acabamento do
+			tipo marfim e hastes de ferro pintadas em branco</small></p>
+            <p style="font-family: Arial; font-weight: normal;">
+            <small><i><u>Objetivo</u></i>:
+			Descobrir se uma dada figura possui ou
+			não simetria de rotação de
+			ângulos 60 ou 120 graus.</small></p>
+            </td>
+            <td bgcolor="#B5C9D5" width="187">
+            <p class="MsoNormal" style="text-align: center;" align="center"> <a href="../simetrias/reconhecimento/3_rotacoes/rotacoes.html"><font color="#ffffff"> <img class="imagem" style="border: 0px solid;" alt="Reconhecimento - Rotações" title="Reconhecimento - Rotações" src="../simetrias/reconhecimento/3_rotacoes/s21_7.JPG" v:shapes="_x0000_s1030" /></font></a></p>
+            <h5><p align="center" style="font-family: Arial;"><small><small>Clique na imagem!</small></small></p></h5>
+			</td>
+          </tr>
+
+          <tr>
+            <td colspan="2" valign="top">&nbsp;</td>
+          </tr>
+          <tr>
+            <td colspan="2" bgcolor="#B5C9D5" valign="top">
+            <p style="font-family: Arial; font-weight: bold;"><small>Peça 065. Rotação 3</small></p>
+            </td>
+          </tr>	  
+          <tr>
+            <td bgcolor="#B5C9D5" valign="top" width="360">            
+            <p style="font-family: Arial; font-weight: normal;"><small><i><u>Descrição
+            </u></i>:
+			Peça de madeira MDF com acabamento do
+			tipo marfim e placa de acrílico</small></p>
+            <p style="font-family: Arial; font-weight: normal;">
+            <small><i><u>Objetivo</u></i>:
+			Descobrir
+			se uma dada figura possui ou não simetria de
+			rotação buscando padrões existentes na
+			figura.</small></p>
+            </td>
+            <td bgcolor="#B5C9D5" width="187">
+            <p class="MsoNormal" style="text-align: center;" align="center"> <a href="../simetrias/reconhecimento/3_rotacoes/rotacoes.html"><font color="#ffffff"> <img class="imagem" style="border: 0px solid;" alt="Reconhecimento - Rotações" title="Reconhecimento - Rotações" src="../simetrias/reconhecimento/3_rotacoes/s22_7.JPG" v:shapes="_x0000_s1029" /></font></a></p>
+            <h5><p align="center" style="font-family: Arial;"><small><small>Clique na imagem!</small></small></p></h5>
+			</td>
+          </tr>
+
+          <tr>
+            <td colspan="2" valign="top">&nbsp;</td>
+          </tr>
+
+          <tr>
+            <td colspan="2" bgcolor="#B5C9D5" valign="top">
+            <p style="font-family: Arial; font-weight: bold;"><small>Peça 067. Glissoreflexão</small></p>
+            </td>
+          </tr>	  
+          <tr>
+            <td bgcolor="#B5C9D5" valign="top" width="360">
+            <p style="font-family: Arial; font-weight: normal;"><small><i><u>Descrição
+            </u></i>:
+			Peça constituída de
+			articulações em alumínio encaixadas
+			sobre uma mesa.</small></p>
+            <p style="font-family: Arial; font-weight: normal;">
+            <small><i><u>Objetivo</u></i>:
+			Descobrir se uma dada figura possui ou
+			não simetria de glissoreflexão</small></p>
+            </td>
+            <td bgcolor="#B5C9D5" width="187">
+            <p class="MsoNormal" style="text-align: center;" align="center"> <a href="../simetrias/reconhecimento/4_glissoreflexoes/glissoreflexoes.html"><font color="#ffffff"> <img class="imagem" style="border: 0px solid;" alt="Reconhecimento - Glissoreflexões" title="Reconhecimento - Glissoreflexões" src="../simetrias/reconhecimento/4_glissoreflexoes/s24_4.JPG" v:shapes="_x0000_s1027" /></font></a></p>
+            <h5><p align="center" style="font-family: Arial;"><small><small>Clique na imagem!</small></small></p></h5>
+			</td>
+          </tr>
+
+          <tr>
+            <td colspan="2" valign="top">&nbsp;</td>
+          </tr>
+
+          <tr>
+            <td colspan="2" id="bordaAzul"> 
+            <p style="font-family: Arial; font-weight: bold;"><small>Subsetor:
+			Softwares</small></p>
+            </td>
+          </tr>
+		  
+          <tr>
+            <td><br />
+            </td>
+            <td></td>
+          </tr>
+
+          <tr>
+            <td colspan="2" bgcolor="#B5C9D5" valign="top">
+            <p style="font-family: Arial; font-weight: bold;"><small>Peça 068. Programa Simis</small></p>
+            </td>
+          </tr>	  
+          <tr>
+            <td bgcolor="#B5C9D5" valign="top" width="360">
+            <p style="font-family: Arial; font-weight: normal;"><small><i><u>Descrição
+            </u></i>:
+			Software computacional para desenhar simetrias.</small></p>
+            <p style="font-family: Arial; font-weight: normal;">
+            <small><i><u>Objetivo</u></i>:
+			Desenhar
+			figuras simétricas observando as diferenças entre as
+			três classes de grupos de simetrias. Obter a
+			translação, reflexão,
+			rotação e
+			glissoreflexão de figuras desenhadas.</small></p>
+            </td>
+            <td bgcolor="#B5C9D5" width="187">
+            <p class="MsoNormal" style="text-align: center;" align="center"> <a href="../simetrias/softwares/1_simis/simis.html"><font color="#ffffff"> <img class="imagem" style="border: 0px solid;" alt="Programa Simis" title="Programa Simis" src="../simetrias/softwares/1_simis/s25_3.jpg" v:shapes="_x0000_s1026" /></font></a></p>
+            <h5><p align="center" style="font-family: Arial;"><small><small>Clique na imagem!</small></small></p></h5>
+			</td>
+          </tr>
+
+          <tr>
+            <td colspan="2" valign="top">&nbsp;</td>
+          </tr>
+
+          <tr>
+            <td colspan="2" bgcolor="#B5C9D5" valign="top">
+            <p style="font-family: Arial; font-weight: bold;"><small>Peça 051. Programa Face</small></p>
+            </td>
+          </tr>
+          <tr>
+            <td bgcolor="#B5C9D5" valign="top" width="360">            
+            <p style="font-family: Arial; font-weight: normal;"><small><i><u>Descrição
+            </u></i>:
+			Software computacional para fazer
+			reflexão de rosto</small></p>
+            <p style="font-family: Arial; font-weight: normal;">
+            <small><i><u>Objetivo</u></i>:
+			Obter o simétrico de um rosto obtido
+			através de fotografia.</small></p>
+            </td>
+            <td bgcolor="#B5C9D5" width="187">
+            <p class="MsoNormal" style="text-align: center;" align="center"> <a href="../simetrias/softwares/2_face/face.html"><font color="#ffffff"> <img class="imagem" style="border: 0px solid;" alt="Programa Face" title="Programa Face" src="../simetrias/softwares/2_face/s26_1.jpg" v:shapes="_x0000_s1025" /></font></a></p>
+            <h5><p align="center" style="font-family: Arial;"><small><small>Clique na imagem!</small></small></p></h5>
+			</td>
+          </tr>
+        </tbody>      
+      </table>
+      <br />
+      
+      </div>
+      </td>
+    </tr>
+	
+    <tr>
+      <td height="129"> <iframe src="../../../iframe/rodape.html" frameborder="0" height="100%" scrolling="no" width="100%"> </iframe>
+      </td>
+    </tr>
+  
+  </tbody>
+</table>
+</div>
+<div id="copyright"><a href="http://apycom.com/"></a></div>
+<a href="#" class="scrolltopo" ></a>
+</body>
+</html>

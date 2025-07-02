@@ -1,0 +1,3 @@
+A figura é preservada por...
+
+... rotações? Use os discos para descobrir se há algum padrão de rotação.

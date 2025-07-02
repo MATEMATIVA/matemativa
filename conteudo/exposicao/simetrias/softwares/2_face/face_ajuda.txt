@@ -1,0 +1,18 @@
+Este programa apresenta quatro versões de uma imagem fornecida:
+
+- a imagem original;
+
+- a imagem espelhada;
+
+- a imagem com reflexo esquerdo;
+
+- a imagem com reflexo direito.
+
+A imagem deverá estar em formato bmp.
+
+Para isto abra o arquivo (geralmente em formato jpg) no programa
+photoeditor ou qualquer editor de imagens.
+
+Modifique o tamanho para 8 cm de altura, no máximo.
+
+Após escolher a imagem, posicione a reta de reflexão.

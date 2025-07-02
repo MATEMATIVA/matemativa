@@ -1,0 +1,216 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="shortcut icon" href="imagens/icone.ico" >
+  <meta name="Keywords" content="Museu Exposição Matemativa Matemática Interativa UEM" />
+  <title>Matemativa - Exposição Interativa de Matemática</title>
+  <link rel="stylesheet" type="text/css" href="css/estilo.css" />
+  <!-- Menu Vertical -->
+  <link type="text/css" href="css/menu.css" rel="stylesheet" />
+  <script type="text/javascript" src="css/jquery.js"></script>
+  <script type="text/javascript" src="css/menu.js"></script>
+  
+<script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js'></script>
+<script type='text/javascript' src='css/modernizr.custom.13303.js'></script>
+<script type='text/javascript' src='css/jquery.shockwave.js'>
+
+/***********************************************
+* Shockwave 3D slideshow script- © Dynamic Drive (www.dynamicdrive.com)
+* This notice MUST stay intact for legal use
+* Visit http://www.dynamicdrive.com/ for this script and 100s more.
+***********************************************/
+
+</script> 
+<script type='text/javascript' src='css/jquery.shockwave.effects.js'></script>
+<script>
+
+var imagesDataArray = [ //For demos, define a single set of images to be used in all of the demos below
+{
+      src: 'imagens/PP001.jpg',      
+   },   
+   {
+      src: 'imagens/PP002.jpg',      
+   }, 
+   {
+      src: 'imagens/PP003.jpg',      
+   }, 
+   {
+      src: 'imagens/PP004.jpg',      
+   }, 
+   {
+      src: 'imagens/PP005.jpg',      
+   }, 
+   {
+      src: 'imagens/PP006.jpg',      
+   }, 
+   {
+      src: 'imagens/PP007.jpg',      
+   }, 
+   {
+      src: 'imagens/PP084.jpg',      
+   }, 
+   {
+      src: 'imagens/PP117.jpg',      
+   }, 
+   {
+      src: 'imagens/PP119.jpg',      
+   }, 
+   {
+      src: 'imagens/PP137.jpg',      
+   },
+   {
+      src: 'imagens/PP171.jpg',      
+   } 
+];
+jQuery(function(){
+	
+	$('#flipedge').shockwave(imagesDataArray, {
+	 'slider-type': 'FlipEdgeSlider',
+   'tiles-in-x': 7,
+   'tiles-in-y': 1,
+   'fixed-rotation-axis': [1, 0, 0],
+ 'controller-default-wave-origin': ['20%', '20%'],
+	 'autostart-slideshow': true
+	});
+})
+</script>
+  
+  <!-- Final Menu Vertical -->
+</head>
+<body onload="preloadImages();">
+
+<div id="container">
+
+<table align="center" border="0" cellpadding="0" cellspacing="0" width="780">
+  <tbody>
+    <tr>
+      <td height="179"> <iframe src="iframe/topo.html" frameborder="0" height="100%" scrolling="no" width="100%"> </iframe> </td>	  
+    </tr>
+    <tr>
+	  <!-- start menu -->
+	  
+       <td background="imagens/fundo.png"> 
+      <div id="menu">
+		<ul class="menu">
+			<li><a href="index.html"><span>Principal</span></a></li>
+			<li><a href="conteudo/agenda.html"><span>Agenda</span></a></li>
+			<li><a href="conteudo/biblioteca.html"><span>Biblioteca</span></a></li>
+			<li><a href="conteudo/exposicao.html" class="parent"><span>Exposição</span></a>
+				<div><ul>
+					<li><a href="conteudo/exposicao/acervo/acervo.html"><span>Conhecer todo o acervo </span></a></li>
+					<li><a href="conteudo/exposicao/curvas/curvas.htm" class="parent"><span>Exposição de Curvas </span></a>
+						<div><ul>
+							<li><a href="conteudo/exposicao/curvas/reta/retas.htm"><span>Construção de Retas</span></a></li>
+							<li><a href="conteudo/exposicao/curvas/conicas/conicas.htm"><span>Cônicas</span></a></li>
+							<li><a href="conteudo/exposicao/curvas/curvas_transcendentes/transcendentes.htm"><span>Curvas Transcendentes</span></a></li>
+							<li><a href="conteudo/exposicao/curvas/regradas/regradas.htm"><span>Superfícies Regradas</span></a></li>
+						</ul></div>
+					</li>
+					<li><a href="conteudo/exposicao/simetrias/simetrias.html" class="parent"><span>Exposição de Simetrias</span></a>
+						<div><ul>
+							<li><a href="conteudo/exposicao/simetrias/conceito/conceito.html"><span>Conceito</span></a></li>
+							<li><a href="conteudo/exposicao/simetrias/isometrias/isometria.html"><span>Isometrias Planas</span></a></li>
+							<li><a href="conteudo/exposicao/simetrias/frisos_rosetas/frisos_rosetas.html"><span>Rosetas e Frisos</span></a></li>
+							<li><a href="conteudo/exposicao/simetrias/papeis/papeis.html"><span>Papéis de Parede</span></a></li>
+							<li><a href="conteudo/exposicao/simetrias/reconhecimento/reconhecimento.html"><span>Reconhecimento</span></a></li>
+							<li><a href="conteudo/exposicao/simetrias/softwares/software.html"><span>Os programas Simis e Face</span></a></li>
+						</ul></div>
+					</li>
+				</ul></div>
+			</li>
+			<li><a href="conteudo/memoria.html" class="parent"><span>Memória</span></a>
+				<div><ul>
+					<li><a href="conteudo/memoria/exposicoes.html"><span>Exposições</span></a></li>
+					<li><a href="conteudo/memoria/mostra.html"><span>Mostra de Objetos</span></a></li>
+					<li><a href="conteudo/memoria/comunicacao.html"><span>Comunicações</span></a></li>
+					<li><a href="conteudo/memoria/oficinas.html"><span>Oficinas</span></a></li>
+					<li><a href="conteudo/memoria/palestras_minic.html"><span>Palestras e Minicurcos</span></a></li>
+					<li><a href="conteudo/memoria/outros.html"><span>Outros</span></a></li>
+				</ul></div>
+			</li>			
+			<li><a href="conteudo/contato.html"><span>Contatos</span></a></li>
+			<li><a href="conteudo/mapa.html"><span>Mapa</span></a></li>
+			<li class="last"><a href="conteudo/creditos.html" class="parent"><span>Créditos</span></a>
+				<div><ul>
+					<li><a href="conteudo/creditos/coordenacao.html"><span>Coordenação</span></a></li>
+					<li><a href="conteudo/creditos/participantes.html"><span>Participantes</span></a></li>
+					<li><a href="conteudo/creditos/apoio.html"><span>Apoio</span></a></li>
+					<li><a href="conteudo/creditos/promocao.html"><span>Promoção</span></a></li>
+					<li><a href="conteudo/creditos/montagem.html"><span>Montagem da Página</span></a></li>
+					<li><a href="conteudo/creditos/confeccao.html"><span>Confecção dos  exhibits</span></a></li>
+					<li><a href="conteudo/creditos/arte.html"><span>Arte</span></a></li>
+					<li><a href="conteudo/creditos/agrad.html"><span>Agradecimentos</span></a></li>
+					<li><a href="conteudo/creditos/agradesp.html"><span>Agradecimentos Especiais</span></a></li>
+					<li><a href="conteudo/creditos/referencias.html"><span>Referências Principais</span></a></li>
+				</ul></div>					
+			</li>				
+		</ul>
+	</div>
+	
+	  <!-- end menu -->
+    <div id="texto">
+      <div style="text-align: right;"> <span style="font-family: Arial;"><h3>Principal</h3></span><br />
+
+      <span style="font-family: Arial;"><span style="font-weight: bold;"></span></span></div>
+	  
+      
+	  <span style="font-family: Arial;"><span style="font-weight: bold;"><br />
+		<div id='flipedge' style="float: right;"></div>
+
+      </span><small>Uma forma diferente de experimentar a
+		Matemática, interagindo com seus conceitos de forma a
+		contribuir
+		com o desenvolvimento de sua sensibilidade e aptidão
+		científicas. </small></span><small><br style="font-family: Arial;" />
+
+      <br style="font-family: Arial;" />
+
+      <span style="font-family: Arial;"> Esse é
+		o objetivo do projeto. </span><br style="font-family: Arial;" />
+
+      <span style="font-family: Arial;">Iniciado em 2004 e
+		inaugurado
+		em 2005, já contamos com duas
+		exposições
+		temáticas e um minicurso na forma de oficina. </span><br style="font-family: Arial;" />
+
+      <span style="font-family: Arial;">Nesse
+		sítio, você pode explorar um pouco do material que
+		já produzimos. </span><br style="font-family: Arial;" />
+
+      <br style="font-family: Arial;" />
+
+      <span style="font-family: Arial;">No momento
+		há fotos,
+		vídeos e alguns textos explicativos. Mais adiante, conforme
+		o
+		andamento do projeto, surgirão outras novidades. </span><br style="font-family: Arial;" />
+
+      <br style="font-family: Arial;" />
+
+      <span style="font-family: Arial;">Temos como meta
+		colocar todas
+		as informações que possam ajudar a compreender o
+		nosso
+		objetivo e, quem sabe, reproduzir sua própria
+		exposição. </span><br style="font-family: Arial;" />
+
+      <br style="font-family: Arial;" />
+
+      <span style="font-family: Arial;">Um Bom Passeio
+		pelo sítio! </span></small> <br /><br />
+
+	  </div>
+      </td>
+    </tr>
+    <tr>
+      <td height="129"> <iframe src="iframe/rodape.html" frameborder="0" height="100%" scrolling="no" width="100%"> </iframe> </td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<div id="copyright"><a href="http://apycom.com/"></a></div>
+<a href="#" class="scrolltopo" ></a>
+</body>
+</html>

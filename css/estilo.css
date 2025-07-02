@@ -1,0 +1,239 @@
+/* CSS Document */
+
+body {
+	margin: 0px;
+	padding:0px;	
+	background:
+		url(../imagens/ladoesq.png)top left repeat-y scroll,
+		url(../imagens/ladodir.png)top right repeat-y scroll;	
+}
+
+
+/********************
+*      Posições     *
+*********************/
+#container {
+	width: 780px;
+	background-color: rgb(255, 255, 255);
+	margin: 0px auto 0px auto;
+	text-align: left;
+	border: 0px solid #333333;
+	padding: 0px;
+	-moz-box-shadow: 10px 10px 22px #000;
+	-webkit-box-shadow: 0px 0px 30px #000;
+	box-shadow: 0px 0px 30px #000;
+	
+}
+
+#menu {
+	float:left;
+	margin: 0px;
+	padding: 0px 15px 5px 15px;
+	width: 148px;	
+}
+
+/********************
+*       Estilo      *
+*********************/
+
+#texto{
+	color:#000000;
+	border:thin #999999;
+	
+	padding-left: 200px;
+	padding-right: 15px;
+	font:Verdana, Arial, Helvetica, sans-serif;
+	font-size: 15px;
+	text-align: justify;	
+}	
+
+#flipedge{
+	margin-left: 5px;
+	padding-left: 5px;
+}
+
+
+#credito{
+	margin-left: 0px;
+	margin-right: 15px;	
+	color:#000000;
+	font-size: 13px;
+	text-align: justify;
+}
+
+#quadro{
+	background-color: #B5C9D5;	
+	-moz-box-shadow: 0px 0px 10px #000;
+	-webkit-box-shadow: 0px 0px 10px #000;
+	box-shadow: 0px 0px 15px #FFF;
+	padding: 3px;
+	font-family: Arial;
+	text-align: left;
+}
+#borda{
+	background-color: #B5C9D5;	
+	-moz-box-shadow: -5px 5px 10px #FFF;
+	-webkit-box-shadow: -5px 5px 10px #FFF;
+	box-shadow: -5px 0px 15px #FFF;
+}
+#bordaAzul{
+	background-color: #B5C9D5;	
+	-moz-box-shadow: 0px 0px 10px #000;
+	-webkit-box-shadow: 0px 0px 10px #000;
+	box-shadow: 0px 0px 15px #000099;
+}
+h6 {
+	font-size:14px;
+	color:#000000;
+}
+h5 {
+	font-size:13px;
+	text-shadow: 1px 1px 2px #000099;
+	text-align:right;
+}
+h3 {
+text-shadow: 3px 3px 4px #FFFFFF;
+}
+a:link {
+	color: #000099;
+	text-decoration: none;
+}
+a:visited {
+	text-decoration: none;
+	color: #000099;
+}
+a:hover {
+	text-decoration: blink;
+	color: #666666;
+    opacity:0.90;
+	-moz-opacity: 0.90;
+	filter: alpha(opacity=90);
+}
+a:active {
+	text-decoration: none;
+	color: #CCCCCC;
+}
+
+p {
+margin-left:3px;
+}
+img{
+margin: 3px 3px 0 3px; 
+}
+
+/**********
+	Imagem
+**********/
+.imagem {
+width: 123px;
+height: 92px;
+-webkit-transition: 0.5s ease-in;
+-moz-transition: 0.5s ease-in;
+-o-transition: 0.5s ease-in;
+transition: 0.5s ease-in;	
+}
+
+.imagem:hover {
+width: 172px;
+height: 129px;	
+}
+.imagem2 {
+width: 92px;
+height: 140px;
+-webkit-transition: 0.5s ease-in;
+-moz-transition: 0.5s ease-in;
+-o-transition: 0.5s ease-in;
+transition: 0.5s ease-in;	
+}
+
+.imagem2:hover {
+width: 138px;
+height: 210px;	
+}
+
+
+/**********
+	Menu
+**********/
+#navegador{
+   width: 148px;
+   height: 28px;
+} 
+
+.colunas {
+	-moz-column-count:3; /* Firefox */
+	-webkit-column-count:3; /* Safari and Chrome */
+	column-count:3;
+}
+
+.mud3 a{
+   font-weight: bold;
+   border: 1px solid #999999;
+   margin:3 0 3 0px;
+   padding: 2px;
+   background-image:url(../imagens/exposicao.gif);
+   display: block; 
+} 
+
+.mud3 a:hover{
+
+   width: 148px;
+   height: 28px;
+   background:url(../imagens/exposicao-over.gif);
+   display: block; 
+} 
+.scrolltopo { width:40px; height:40px; position: fixed; background: url(../imagens/top.png); bottom:50px; right:50px; display:none; }
+
+/**********
+   Formulario
+**********/
+
+input:focus {
+background:#CACAD9;  
+-webkit-transition: 0.5s ease-in;
+-moz-transition: 0.5s ease-in;
+-o-transition: 0.5s ease-in;
+transition: 0.5s ease-in;
+} 
+/**********
+   Fotos
+**********/
+
+#thumbBox{ /*Outermost DIV for thumbnail viewer*/
+position: absolute;
+left: 0;
+top: 0;
+width: auto;
+padding: 10px;
+padding-bottom: 0;
+background: #313131;
+visibility: hidden;
+z-index: 10;
+cursor: hand;
+cursor: pointer;
+}
+
+#thumbBox .footerbar{ /*Footer DIV of thumbbox that contains "close" link */
+font: bold 16px Tahoma;
+letter-spacing: 5px;
+line-height: 1.1em;
+color: white;
+padding: 5px 0;
+text-align: right;
+}
+
+
+#thumbBox #thumbImage{ /*DIV within thumbbox that holds the enlarged image */
+background-color: #333333;
+color: white;
+}
+
+#thumbLoading{ /*DIV for showing "loading" status while thumbbox is being generated*/
+position: absolute;
+visibility: hidden;
+border: 1px solid black;
+background-color: #EFEFEF;
+padding: 5px;
+z-index: 5;
+}
+

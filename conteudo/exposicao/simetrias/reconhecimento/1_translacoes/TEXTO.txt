@@ -1,0 +1,3 @@
+A figura é preservada por...
+
+... translações? [parágrafo] Mova as varetas para descobrir o padrão de translação, se houver.
