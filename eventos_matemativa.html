@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Linha do Tempo – Projeto Matemativa (2006–2011)</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <style>
+    :root {
+      --global-offset: 200px;
+      --bg: #f6f8fa;
+      --card: #ffffff;
+      --primary: #1b4d8c;
+      --accent: #ffb347;
+      --border: #d9e1ea;
+      --font: "Segoe UI", Roboto, Arial, sans-serif;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin:0;
+      font-family: var(--font);
+      background: var(--bg);
+      color:#1e2328;
+      line-height:1.45;
+      -webkit-font-smoothing: antialiased;
+    }
+    header {
+      background: var(--primary);
+      color:#fff;
+      padding:1.15rem 1.4rem .95rem;
+    }
+    header h1 {
+      margin:0 0 .35rem;
+      font-size:1.28rem;
+      font-weight:600;
+      letter-spacing:.02em;
+    }
+    header p { margin:0; font-size:.8rem; opacity:.9; }
+    .container {
+      max-width:1100px;
+      margin:0 auto;
+      padding:1rem 1.1rem 3.5rem;
+    }
+    .controls {
+      display:flex; flex-wrap:wrap; gap:.85rem 1.2rem; align-items:flex-end;
+      margin-bottom:1.1rem; background:#fff; padding:.9rem 1rem 1rem;
+      border:1px solid var(--border); border-radius:10px;
+      box-shadow:0 2px 4px -2px rgba(0,0,0,.08);
+    }
+    .controls > div { display:flex; flex-direction:column; gap:.32rem; min-width:150px; }
+    label {
+      font-size:.63rem; text-transform:uppercase; letter-spacing:.08em;
+      font-weight:600; color:#455260;
+    }
+    select, input[type="text"] {
+      padding:.52rem .55rem; border:1px solid var(--border);
+      border-radius:6px; background:#fff; font-size:.8rem;
+      font-family:inherit; min-width:130px;
+    }
+    select:focus, input:focus { outline:2px solid #b7d2f5; }
+    button {
+      cursor:pointer; border:1px solid var(--primary); background:var(--primary);
+      color:#fff; padding:.6rem .95rem; font-size:.72rem; font-weight:600;
+      border-radius:6px; letter-spacing:.05em; transition:.18s;
+    }
+    button.secondary { background:#fff; color:var(--primary); }
+    button:hover { filter:brightness(.92); }
+    .stats {
+      margin-left:auto; font-size:.65rem; background:#eef3f9;
+      padding:.35rem .55rem; border-radius:5px; font-weight:600; color:#2d4762;
+    }
+    .timeline-wrapper {
+      position:relative; margin-top:1.4rem;
+      padding-left:56px; margin-left:var(--global-offset);
+    }
+    .timeline-line {
+      position:absolute; top:10px; left:10px; width:4px;
+      background:linear-gradient(var(--primary), var(--primary));
+      border-radius:3px;
+    }
+    .year-block { position:relative; margin-bottom:2.7rem; }
+    .year-label {
+      position:relative; font-size:1.05rem; font-weight:700; color:var(--primary);
+      margin:0 0 1.1rem; display:inline-flex; align-items:center; gap:.5rem;
+      background:linear-gradient(90deg,#fff,#fff0); padding:.25rem .85rem .3rem;
+      border:1px solid var(--border); border-radius:30px;
+      box-shadow:0 2px 4px -2px rgba(0,0,0,.15);
+    }
+    .year-label::before {
+      content:""; width:14px; height:14px; background:#fff;
+      border:4px solid var(--accent); border-radius:50%;
+      box-shadow:0 0 0 3px #fff;
+    }
+    .event {
+      position:relative; background:var(--card);
+      padding:.75rem .85rem .8rem; margin:0 0 1rem;
+      border:1px solid var(--border); border-radius:10px;
+      box-shadow:0 2px 4px -2px rgba(0,0,0,.08);
+      transition:border-color .25s, background .25s, transform .25s;
+      max-width:480px;
+    }
+    .event:hover { border-color:var(--primary); background:#fffef8; transform:translateY(-2px); }
+    .event::before {
+      content:""; position:absolute; left:-34px; top:18px;
+      width:16px; height:16px; background:#fff;
+      border:4px solid var(--accent); border-radius:50%;
+      box-shadow:0 0 0 3px var(--bg);
+    }
+    .event h3 { margin:0 0 .45rem; font-size:.95rem; font-weight:600; letter-spacing:.01em; color:#1d2730; }
+    .event-inner { display:flex; gap:.85rem; align-items:flex-start; }
+    .event-media {
+      flex: 0 0 140px; height: 120px; display:flex; align-items:center; justify-content:center;
+      background:#f0f3f6; border:1px solid #e1e6eb; border-radius:8px; position:relative; overflow:hidden;
+    }
+    .event-media img { max-width:100%; max-height:100%; object-fit:contain; display:block; }
+    .event-media.loading::after{
+      content:"Carregando..."; position:absolute; inset:0; display:flex;
+      align-items:center; justify-content:center; font-size:.55rem; font-weight:600;
+      color:#5b6872; background:linear-gradient(135deg,#f4f7fa,#eef2f6);
+    }
+    .event-media.error::after{
+      content:"Sem imagem"; position:absolute; inset:0; display:flex;
+      align-items:center; justify-content:center; font-size:.55rem; font-weight:600;
+      color:#6a7480; background:#f1f4f7;
+    }
+    .event-text { flex:1; min-width:0; }
+    .meta {
+      display:flex; flex-wrap:wrap; gap:.55rem 1.1rem; margin:0 0 .55rem;
+      font-size:.62rem; text-transform:uppercase; letter-spacing:.07em;
+      font-weight:600; color:#4a5866;
+    }
+    .dates { color:var(--primary); }
+    .type {
+      background:var(--primary); color:#fff; padding:.23rem .50rem;
+      border-radius:4px; font-size:.58rem; letter-spacing:.07em;
+    }
+    .location { font-size:.72rem; color:#2f3c49; display:flex; flex-wrap:wrap; gap:.5rem; margin-bottom:.45rem; }
+    .location strong { font-weight:600; color:#1d2730; }
+    .tags { display:flex; flex-wrap:wrap; gap:.4rem; margin-top:.2rem; }
+    .tag {
+      font-size:.55rem; padding:.25rem .55rem; background:#e7eef5;
+      color:#28435b; border-radius:4px; font-weight:600; letter-spacing:.05em;
+    }
+    .badge-incerta { background:#ff6161; color:#fff; }
+    .search-empty {
+      margin-top:1.5rem; background:#fff; border:1px dashed var(--border);
+      border-radius:10px; padding:2rem 1.5rem; text-align:center;
+      font-size:.85rem; color:#5a6673;
+    }
+    footer { margin-top:3rem; font-size:.62rem; text-align:center; color:#5d666f; }
+    .hint { font-size:.6rem; color:#666; margin-top:.4rem; line-height:1.2; }
+    #import-csv[hidden] { display:none; }
+    .import-box p { font-size:.66rem; line-height:1.35; margin:0 0 .55rem; }
+    .import-actions { display:flex; flex-wrap:wrap; gap:.55rem; margin-top:.55rem; }
+    .import-status { font-size:.63rem; font-weight:600; align-self:center; }
+    .auto-fetch-warn { font-size:.62rem; margin-top:.4rem; color:#8a4d00; line-height:1.25; }
+    .drag-hint {
+      margin:.6rem 0 0; font-size:.6rem; padding:.45rem .6rem;
+      background:#fffdf2; border:1px dashed #d6b25a; border-radius:6px;
+    }
+    .drop-zone {
+      margin-top:.6rem; padding:1.1rem; border:2px dashed #b5c2d0;
+      border-radius:10px; text-align:center; font-size:.7rem;
+      background:#f8fafc; color:#486078;
+    }
+    .drop-zone.dragover { background:#eef6ff; border-color:#1b4d8c; color:#1b4d8c; }
+    @media (max-width:650px){
+      .timeline-wrapper { padding-left:48px; }
+      .timeline-line { left:22px; }
+      .event::before { left:-30px; }
+      .year-label { font-size:.95rem; }
+      .event-inner { flex-direction:column; }
+      .event-media { width:100%; flex:0 0 auto; }
+      .event-media img { width:100%; height:100%; object-fit:cover; border-radius:4px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Linha do Tempo – Projeto Matemativa (2006–2011)</h1>
+    <p>Carrega automaticamente o CSV (numeração zero-based para imagens).</p>
+  </header>
+  <div class="container">
+
+    <div class="controls">
+      <div><label for="f-ano">Ano</label><select id="f-ano"><option value="">Todos</option></select></div>
+      <div><label for="f-tipo">Tipo / Categoria</label><select id="f-tipo"><option value="">Todos</option></select></div>
+      <div><label for="f-busca">Busca (título, local, cidade)</label><input type="text" id="f-busca" placeholder="ex: Semana, Fórum, Maringá"></div>
+      <div><label for="f-periodo">Período</label><select id="f-periodo"><option value="todos">Todos</option><option value="1d">1 dia</option><option value="range">Intervalo</option></select></div>
+      <div><label>&nbsp;</label><button id="btn-limpar" type="button">Limpar filtros</button></div>
+      <div class="stats" id="stats"></div>
+      <div class="hint">
+        Imagem: Evento 0 → 000.png (altere OFFSET se precisar).<br>
+        Se "Failed to fetch", veja instruções abaixo.
+      </div>
+    </div>
+
+    <details id="import-csv" style="margin-bottom:1.2rem;">
+      <summary style="cursor:pointer;font-size:.78rem;font-weight:600;color:#1b4d8c;">Importação / Diagnóstico CSV</summary>
+      <div class="import-box" style="margin-top:.75rem;background:#fff;border:1px solid #d9e1ea;padding:.9rem 1rem;border-radius:10px;box-shadow:0 2px 4px -2px rgba(0,0,0,.05);">
+        <p>
+          O arquivo principal é carregado automaticamente: <code id="cfg-csv-name">eventos-extra.csv</code><br>
+          Separador detectado automaticamente (vírgula, ponto e vírgula ou tab). Aceita Código = 0.
+        </p>
+        <div style="display:flex;flex-wrap:wrap;gap:.8rem .9rem;align-items:flex-end;">
+          <div style="display:flex;flex-direction:column;gap:.35rem;">
+            <label for="csv-file" style="font-size:.6rem;">CSV extra (manual)</label>
+            <input type="file" id="csv-file" accept=".csv" style="font-size:.65rem;">
+          </div>
+          <div style="display:flex;flex-direction:column;gap:.35rem;min-width:200px;">
+            <label style="font-size:.6rem;">Ações</label>
+            <div class="import-actions">
+              <button type="button" id="btn-import-file">Importar</button>
+              <button type="button" id="btn-limpar-importados" class="secondary">Remover importados</button>
+            </div>
+          </div>
+          <span id="import-status" class="import-status"></span>
+        </div>
+        <div class="drag-hint">
+          Arraste e solte um CSV sobre a área abaixo para importar rapidamente.
+        </div>
+        <div id="drop-zone" class="drop-zone">
+          Solte o arquivo CSV aqui
+        </div>
+        <div class="auto-fetch-warn" id="auto-fetch-warn"></div>
+      </div>
+    </details>
+
+    <div class="timeline-wrapper">
+      <div class="timeline-line" id="timeline-line"></div>
+      <div id="timeline-root"></div>
+    </div>
+    <div id="empty" class="search-empty" style="display:none;">Nenhum evento encontrado para os filtros/busca.</div>
+    <footer>
+      Fonte: Conteúdo parcial do PDF (trecho fornecido). <br>
+      Datas truncadas indicadas como "Data final incerta".
+    </footer>
+  </div>
+
+  <script>
+    /* ====================== CONFIG ====================== */
+    const AUTO_FETCH_CSV = 'eventos-extra.csv';
+    const AUTO_FETCH_ON_LOAD = true;
+    const REPLACE_BASE_EVENTS = true;
+    const HIDE_IMPORT_UI = false;
+    const IMAGE_MODE = 'displayIndex';      // 'displayIndex' ou 'id'
+    const IMAGE_OFFSET = 0;                // Somado ao número base da imagem
+    const IMAGE_PAD = 3;
+    const IMAGE_EXTS = ['png','jpg','webp'];
+    const CLEAR_ON_FAILED_FETCH = false;
+    const AUTO_FETCH_RETRY_MS = 0;          // 0 desativa retry automático
+    const LOG_VERBOSE = true;
+
+    /* ====================== BASE (pode iniciar vazio) ====================== */
+    const events = [
+      {id:5, title:"IV Fórum de Extensão", type:"Comunicação", start:"07/08/2006", end:"08/08/2006", local:"MUDI - UEM", cidade:"Maringá – PR"},
+      {id:6, title:"XXIV SEURS", type:"Comunicação", start:"18/08/2006", end:"20/08/2006", local:"UFRG", cidade:"Rio Grande – RS"},
+      {id:7, title:"III Bienal da SBM", type:"Exposição/Oficina", start:"07/11/2006", end:"10/11/2006", local:"UFG", cidade:"Goiânia – GO"},
+      {id:57, title:"XX EAIC", type:"Comunicação", start:"20/10/2011", end:"22/10/2011", incerta:true, local:"UEPG", cidade:"Ponta Grossa – PR"}
+    ];
+    if(REPLACE_BASE_EVENTS){
+      events.length = 0; // começa vazio aguardando CSV
+    }
+
+    /* ====================== UTIL ====================== */
+    function parseDateBR(str){
+      if(!str) return null;
+      const [d,m,yRaw] = str.split("/").map(s=>s.trim());
+      if(!d||!m||!yRaw) return null;
+      let y = Number(yRaw);
+      if(yRaw.length === 2) y = 2000 + y;
+      return new Date(y, Number(m)-1, Number(d));
+    }
+    function formatRange(ev){ if(!ev.end || ev.end === ev.start) return ev.start; return ev.start + " – " + ev.end; }
+    function isRange(ev){ return ev.end && ev.end !== ev.start; }
+    function processEvent(e){
+      const d = parseDateBR(e.start);
+      e.year = d ? d.getFullYear() : null;
+      e._range = isRange(e);
+      e._search = ([e.title||"", e.type||"", e.local||"", e.cidade||""]).join(" ").toLowerCase();
+    }
+    events.forEach(processEvent);
+
+    /* ====================== DOM ====================== */
+    const dom = {
+      ano: document.getElementById("f-ano"),
+      tipo: document.getElementById("f-tipo"),
+      busca: document.getElementById("f-busca"),
+      periodo: document.getElementById("f-periodo"),
+      limpar: document.getElementById("btn-limpar"),
+      root: document.getElementById("timeline-root"),
+      line: document.getElementById("timeline-line"),
+      empty: document.getElementById("empty"),
+      stats: document.getElementById("stats"),
+      csvFile: document.getElementById("csv-file"),
+      btnImportFile: document.getElementById("btn-import-file"),
+      btnClearImported: document.getElementById("btn-limpar-importados"),
+      importStatus: document.getElementById("import-status"),
+      importDetails: document.getElementById("import-csv"),
+      warn: document.getElementById("auto-fetch-warn"),
+      dropZone: document.getElementById("drop-zone")
+    };
+    if(HIDE_IMPORT_UI && dom.importDetails){
+      dom.importDetails.hidden = true;
+    }
+    document.getElementById('cfg-csv-name').textContent = AUTO_FETCH_CSV;
+
+    /* ====================== FILTROS ====================== */
+    function preencherFiltros(){
+      const valAno = dom.ano.value;
+      const valTipo = dom.tipo.value;
+      const anosUnicos = [...new Set(events.map(e=>e.year).filter(Boolean))].sort((a,b)=>a-b);
+      const tiposUnicos = [...new Set(events.map(e=>e.type).filter(Boolean))].sort((a,b)=>a.localeCompare(b,'pt-BR'));
+      dom.ano.innerHTML = '<option value="">Todos</option>' + anosUnicos.map(a=>`<option value="${a}">${a}</option>`).join('');
+      dom.tipo.innerHTML = '<option value="">Todos</option>' + tiposUnicos.map(t=>`<option value="${t}">${t}</option>`).join('');
+      if([...dom.ano.options].some(o=>o.value===valAno)) dom.ano.value = valAno;
+      if([...dom.tipo.options].some(o=>o.value===valTipo)) dom.tipo.value = valTipo;
+    }
+
+    function filtrar(){
+      const fAno = dom.ano.value;
+      const fTipo = dom.tipo.value;
+      const fBusca = dom.busca.value.trim().toLowerCase();
+      const fPeriodo = dom.periodo.value;
+      const lista = events.filter(e=>{
+        if(fAno && String(e.year)!==fAno) return false;
+          if(fTipo && e.type!==fTipo) return false;
+          if(fBusca && !e._search.includes(fBusca)) return false;
+          if(fPeriodo==="1d" && e._range) return false;
+          if(fPeriodo==="range" && !e._range) return false;
+          return true;
+      });
+      render(lista);
+    }
+
+    ["input","change"].forEach(ev=>{
+      dom.ano.addEventListener(ev, filtrar);
+      dom.tipo.addEventListener(ev, filtrar);
+      dom.busca.addEventListener(ev, filtrar);
+      dom.periodo.addEventListener(ev, filtrar);    });
+    dom.limpar.addEventListener("click", ()=>{
+      dom.ano.value=""; dom.tipo.value=""; dom.busca.value="";
+      dom.periodo.value="todos";      filtrar();
+    });
+
+    let debounceTimer;
+    dom.busca && dom.busca.addEventListener("input", ()=>{
+      clearTimeout(debounceTimer);
+      debounceTimer = setTimeout(filtrar, 160);
+    });
+
+    /* ====================== IMAGENS (ÍNDICE ZERO-BASED) ====================== */
+    function imageNumber(ev){
+      let n = IMAGE_MODE === 'displayIndex' ? ev._displayIndex : ev.id;
+      return n + IMAGE_OFFSET;
+    }
+    function getImageCandidates(ev){
+      const number = imageNumber(ev);
+      const pad = String(number).padStart(IMAGE_PAD,'0');
+      const raw = String(number);
+      const cands = [];
+      IMAGE_EXTS.forEach(ext=>{
+        cands.push(`${pad}.${ext}`);
+        if(raw !== pad) cands.push(`${raw}.${ext}`);
+      });
+      return cands;
+    }
+    function buildImgHTML(ev){
+      const candidates = getImageCandidates(ev);
+      return `<div class="event-media loading" data-candidates="${candidates.join('|')}">
+        <img alt="Imagem do evento ${ev.title}">
+      </div>`;
+    }
+    function tryLoadSequential(imgWrapper){
+      const list = imgWrapper.dataset.candidates.split('|');
+      let idx = 0;
+      const img = imgWrapper.querySelector('img');
+      function attempt(){
+        if(idx >= list.length){
+          imgWrapper.classList.remove('loading');
+          imgWrapper.classList.add('error');
+          return;
+        }
+        const src = list[idx++];
+        img.onload = ()=> imgWrapper.classList.remove('loading');
+          img.onerror = attempt;
+        img.src = src;
+      }
+      attempt();
+    }
+    function initImages(){ document.querySelectorAll('.event-media.loading').forEach(w=>tryLoadSequential(w)); }
+
+    /* ====================== RENDER ====================== */
+    function dias(ev){
+      if(!ev._range) return 1;
+      const diff = (parseDateBR(ev.end) - parseDateBR(ev.start)) / 86400000 + 1;
+      return Math.round(diff);
+    }
+
+    function render(lista){
+      dom.root.innerHTML="";
+      dom.empty.style.display = lista.length ? "none":"block";
+      dom.stats.textContent = `${lista.length} exibido(s) de ${events.length}`;
+      if(!lista.length){ ajustarLinha(); return; }
+      const group = lista.reduce((acc,e)=>{ (acc[e.year]=acc[e.year]||[]).push(e); return acc; }, {});
+      const anos = Object.keys(group).map(Number).sort((a,b)=>a-b);
+      let displayCounter = 0;
+      anos.forEach(ano=>{
+        group[ano].sort((a,b)=> parseDateBR(a.start) - parseDateBR(b.start));
+        const yBlock = document.createElement("div");
+        yBlock.className="year-block";
+        const yLabel = document.createElement("div");
+        yLabel.className="year-label";
+        yLabel.textContent = ano;
+        yBlock.appendChild(yLabel);
+        group[ano].forEach(ev=>{
+          ev._displayIndex = displayCounter++;
+          const el = document.createElement("div");
+          el.className="event";
+          const imgHTML = buildImgHTML(ev);
+          el.innerHTML = `
+            <div class="event-inner">
+              ${imgHTML}
+              <div class="event-text">
+                <h3>${ev.title}</h3>
+                <div class="meta">
+                  <span class="dates">${formatRange(ev)}</span>
+                  <span class="type">${ev.type||""}</span>
+                  <span>${ev._range ? dias(ev)+" dias":"1 dia"}</span>
+                </div>
+                <div class="location">
+                  <strong>Local:</strong><span>${ev.local||"-"}</span>
+                  <strong>Cidade:</strong><span>${ev.cidade||"-"}</span>
+                </div>
+                <div class="tags">
+                  <span class="tag">Evento ${ev._displayIndex}</span>
+                  ${ev._range?'<span class="tag">Intervalo</span>':'<span class="tag">Pontual</span>'}
+                  ${ev.incerta?'<span class="tag badge-incerta">Data final incerta</span>':""}
+                </div>
+              </div>
+            </div>`;
+          yBlock.appendChild(el);
+        });
+        dom.root.appendChild(yBlock);
+      });
+      ajustarLinha();
+      initImages();
+    }
+
+    function ajustarLinha(){
+      requestAnimationFrame(()=>{
+        const wrap = document.querySelector(".timeline-wrapper");
+        const line = dom.line;
+        const contentHeight = wrap.scrollHeight;
+        line.style.height = (contentHeight - 10) + "px";
+      });
+    }
+
+    /* ====================== CSV / IMPORTAÇÃO ====================== */
+    const importedEvents = [];
+
+    function setImportStatus(msg, erro){
+      if(!dom.importStatus) return;
+      dom.importStatus.textContent = msg;
+      dom.importStatus.style.color = erro ? '#b30000' : '#1b4d8c';
+      if(LOG_VERBOSE) console.log('[CSV]', msg);
+    }
+
+    function detectDelimiter(sampleLine){
+      // Heurística simples
+      const counts = {
+        ';': (sampleLine.match(/;/g)||[]).length,
+        ',': (sampleLine.match(/,/g)||[]).length,
+        '\t': (sampleLine.match(/\t/g)||[]).length
+      };
+      const best = Object.entries(counts).sort((a,b)=>b[1]-a[1])[0];
+      return best && best[1] > 0 ? best[0] : ',';
+    }
+
+    function parseCSV(text){
+      text = text.replace(/^\uFEFF/, ''); // remove BOM
+      const linhas = text.replace(/\r/g,'').split('\n').filter(l=>l.trim());
+      if(!linhas.length) return {header:[],rows:[], delimiter:','};
+      const delimiter = detectDelimiter(linhas[0]);
+      const hasHeader = /[A-Za-zÁ-ú]/.test(linhas[0]);
+      function splitLine(l){
+        const out=[]; let cur=''; let q=false;
+        for(let i=0;i<l.length;i++){
+          const c=l[i];
+          if(c === '"'){
+            if(q && l[i+1] === '"'){ cur+='"'; i++; }
+            else q = !q;
+          } else if(c === delimiter && !q){
+            out.push(cur); cur='';
+          } else cur+=c;
+        }
+        out.push(cur);
+        return out;
+      }
+      let header=[], rows=[];
+      if(hasHeader){
+        header = splitLine(linhas[0]).map(h=>h.trim());
+        for(let i=1;i<linhas.length;i++){
+          const cols = splitLine(linhas[i]);
+          if(cols.some(v=>v.trim())) rows.push(cols);
+        }
+      } else {
+        const colCount = splitLine(linhas[0]).length;
+          header = Array.from({length:colCount},(_,i)=>'Col'+(i+1));
+          linhas.forEach(l=>{
+            const cols = splitLine(l);
+            if(cols.some(v=>v.trim())) rows.push(cols);
+          });
+      }
+      return {header,rows,delimiter};
+    }
+
+    function mapColumns(header){
+      const lower = header.map(h=>h.toLowerCase());
+      function idx(fn){ return lower.findIndex(fn); }
+      return {
+        iCodigo: idx(h=>/c[óo]digo|^id$/.test(h)),
+        iEvento: idx(h=>/^evento$/.test(h)),
+        iTipoAp: idx(h=>/tipo de apresenta/.test(h)),
+        iTipoEx: idx(h=>/tipo de exposi/.test(h)),
+        iIni: idx(h=>/in[ií]cio/.test(h) && /data/.test(h)),
+        iFim: idx(h=>/t[ée]rmino/.test(h) && /data/.test(h)),
+        iLocal: idx(h=>/^local$/.test(h)),
+        iCidade: idx(h=>/^cidade$/.test(h)),
+        iEstado: idx(h=>/^estado$/.test(h))
+      };
+    }
+
+    function normalizaData(str){
+      if(!str) return '';
+      str = str.trim();
+      const m = str.match(/^(\d{2})\/(\d{2})\/(\d{2})$/);
+      if(m) return m[1]+'/'+m[2]+'/20'+m[3];
+      return str;
+    }
+
+    function importarTextoCSV(txt){
+      const {header,rows,delimiter} = parseCSV(txt);
+      if(!rows.length){
+        setImportStatus('CSV sem linhas úteis.', true);
+        return;
+      }
+      const map = mapColumns(header);
+      let adicionados=0, ignorados=0;
+      if(REPLACE_BASE_EVENTS){
+        events.length = 0;
+      }
+      rows.forEach(cols=>{
+        function val(i){ return (i>=0 && i<cols.length) ? cols[i].trim() : ''; }
+        const codigoRaw = val(map.iCodigo);
+        if(codigoRaw === '') { ignorados++; return; }
+        if(isNaN(Number(codigoRaw))) { ignorados++; return; }
+        const idNum = Number(codigoRaw);
+        if(events.some(e=>e.id === idNum)){ ignorados++; return; }
+        const titulo = val(map.iEvento);
+        if(!titulo){ ignorados++; return; }
+        const tipo = val(map.iTipoAp) || val(map.iTipoEx) || '';
+        let ini = normalizaData(val(map.iIni));
+        let fim = normalizaData(val(map.iFim));
+        if(!ini){ ignorados++; return; }
+        const incerta = (!fim || fim.includes('?')) && !!ini;
+        const local = val(map.iLocal);
+        const cidade = val(map.iCidade);
+        const estado = val(map.iEstado);
+        const cidadeFormatada = cidade && estado ? (cidade + ' – ' + estado) : (cidade || estado || '');
+        const novo = {
+          id:idNum,
+          title:titulo,
+          rawType:tipo,
+          type:tipo,
+          start:ini,
+          end:fim || ini,
+          local:local,
+          cidade:cidadeFormatada,
+          incerta:incerta
+        };
+        processEvent(novo);
+        events.push(novo);
+        importedEvents.push(novo);
+        adicionados++;
+      });
+      preencherFiltros();
+      filtrar();
+      setImportStatus(`${adicionados} adicionados, ${ignorados} ignorados (delimitador: "${delimiter}")`, adicionados===0);
+    }
+
+    function importarArquivo(){
+      const file = dom.csvFile.files && dom.csvFile.files[0];
+      if(!file){
+        setImportStatus('Selecione um arquivo.', true);
+        return;
+      }
+      const reader = new FileReader();
+      reader.onload = e => importarTextoCSV(e.target.result);
+      reader.onerror = ()=> setImportStatus('Falha ao ler o arquivo.', true);
+      reader.readAsText(file, 'utf-8');
+    }
+
+    function limparImportados(){
+      if(!importedEvents.length){
+        setImportStatus('Não há importados para remover.', true);
+        return;
+      }
+      const ids = new Set(importedEvents.map(e=>e.id));
+      for(let i=events.length-1;i>=0;i--){
+        if(ids.has(events[i].id)) events.splice(i,1);
+      }
+      importedEvents.length = 0;
+      preencherFiltros();
+      filtrar();
+      setImportStatus('Importados removidos.', false);
+    }
+
+    dom.btnImportFile && dom.btnImportFile.addEventListener('click', importarArquivo);
+    dom.btnClearImported && dom.btnClearImported.addEventListener('click', limparImportados);
+
+    /* Drag & Drop */
+    if(dom.dropZone){
+      dom.dropZone.addEventListener('dragover', e=>{
+        e.preventDefault();
+        dom.dropZone.classList.add('dragover');
+      });
+      dom.dropZone.addEventListener('dragleave', ()=> dom.dropZone.classList.remove('dragover'));
+      dom.dropZone.addEventListener('drop', e=>{
+        e.preventDefault();
+        dom.dropZone.classList.remove('dragover');
+        const f = e.dataTransfer.files && e.dataTransfer.files[0];
+        if(!f){ return; }
+        if(!/\.csv$/i.test(f.name)){
+          setImportStatus('Arquivo não é CSV.', true); return;
+        }
+          const reader = new FileReader();
+          reader.onload = ev => importarTextoCSV(ev.target.result);
+          reader.onerror = ()=> setImportStatus('Erro lendo arrasto.', true);
+          reader.readAsText(f, 'utf-8');
+      });
+    }
+
+    /* ====================== AUTO FETCH ====================== */
+    function explainFetchFailure(err){
+      if(!dom.warn) return;
+      const prot = location.protocol;
+      let hints = [];
+      if(prot === 'file:'){
+        hints.push('Você abriu o arquivo via file://. Muitos navegadores (Chrome/Edge) bloqueiam fetch de arquivos locais por segurança.');
+        hints.push('Solução: rode um servidor local. Exemplos:');
+        hints.push(' - Python: python -m http.server 8000');
+        hints.push(' - Node (npx): npx serve');
+        hints.push(' - VSCode: extensão Live Server');
+        hints.push('Depois acesse: http://localhost:8000/');
+      } else {
+        hints.push('Verifique se o arquivo está na MESMA pasta e o nome está exato (maiúsculas/minúsculas).');
+        hints.push('Confirme no DevTools (Network) se o status é 404 ou outro.');
+      }
+      hints.push('Erro original: ' + err.message);
+      dom.warn.innerHTML = '<strong>Diagnóstico:</strong><br>' + hints.map(h=>'- '+h).join('<br>');
+    }
+
+    function autoFetchCSV(attempt=1){
+      fetch(AUTO_FETCH_CSV, {cache:'no-store'})
+        .then(r=>{
+          if(!r.ok) throw new Error('HTTP '+r.status);
+          return r.text();
+        })
+        .then(txt=>{
+          importarTextoCSV(txt);
+          setImportStatus(`Auto: ${AUTO_FETCH_CSV} carregado (tentativa ${attempt}).`, false);
+        })
+        .catch(err=>{
+          setImportStatus(`Falha ao carregar ${AUTO_FETCH_CSV}: ${err.message}`, true);
+          explainFetchFailure(err);
+          if(REPLACE_BASE_EVENTS && CLEAR_ON_FAILED_FETCH){
+            events.length = 0; preencherFiltros(); filtrar();
+          }
+          if(AUTO_FETCH_RETRY_MS > 0 && attempt < 3){
+            setTimeout(()=>autoFetchCSV(attempt+1), AUTO_FETCH_RETRY_MS);
+          }
+        });
+    }
+
+    /* ====================== START ====================== */
+    preencherFiltros();
+    filtrar(); // render inicial (pode estar vazio se REPLACE_BASE_EVENTS=true)
+
+    if(AUTO_FETCH_ON_LOAD){
+      setTimeout(()=>autoFetchCSV(), 40);
+    }
+  </script>
+</body>
+</html>
