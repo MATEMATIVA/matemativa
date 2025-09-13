@@ -421,7 +421,7 @@
             <div class="event-inner">
               ${imgHTML}
               <div class="event-text">
-                <h3>${ev.title}</h3>
+                <h3>${ev.url ? `<a href="${ev.url}" target="_blank" rel="noopener">${ev.title}</a>` : ev.title}</h3>
                 <div class="meta">
                   <span class="dates">${formatRange(ev)}</span>
                   <span class="type">${ev.type||""}</span>
@@ -558,6 +558,7 @@
         if(events.some(e=>e.id === idNum)){ ignorados++; return; }
         const titulo = val(map.iEvento);
         if(!titulo){ ignorados++; return; }
+	const url    = val(3); // 4ª coluna = link
         const tipo = val(map.iTipoAp) || val(map.iTipoEx) || '';
         let ini = normalizaData(val(map.iIni));
         let fim = normalizaData(val(map.iFim));
@@ -570,6 +571,7 @@
         const novo = {
           id:idNum,
           title:titulo,
+	  url: url,
           rawType:tipo,
           type:tipo,
           start:ini,
