@@ -1,16 +1,19 @@
-## Hi there 👋
+# Matemativa
 
-<!--
-**MATEMATIVA/matemativa** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+Matemativa é uma plataforma educacional dedicada ao ensino de matemática, oferecendo recursos interativos, exercícios e explicações para ajudar alunos a entender conceitos matemáticos de forma eficaz.
 
-Here are some ideas to get you started:
+## Índice
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+- [Instalação](#instalação)
+- [Uso](#uso)
+- [Recursos](#recursos)
+- [Contribuição](#contribuição)
+- [Licença](#licença)
+
+## Instalação
+
+Para executar o projeto localmente, siga os passos abaixo:
+
+1. Clone o repositório:
+   ```bash
+   git clone https://github.com/matemativa/matemativa.git
