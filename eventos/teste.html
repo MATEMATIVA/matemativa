@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Visualizador de CSV Local</title>
+  <style>
+    table { border-collapse: collapse; margin: 20px 0; }
+    th, td { border: 1px solid #aaa; padding: 8px; }
+    th { background: #eee; }
+  </style>
+</head>
+<body>
+  <h1>Dados do CSV</h1>
+  <table id="tabela"></table>
+
+  <script>
+    // Caminho do CSV na mesma pasta
+    const csvUrl = 'teste.csv';
+
+    // Função para converter CSV em array de objetos
+    function csvToArray(str, delimiter = ";") {
+      const rows = str.trim().split('\n');
+      const headers = rows.shift().split(delimiter);
+      return rows.map(row => {
+        const values = row.split(delimiter);
+        return headers.reduce((obj, header, i) => {
+          obj[header.trim()] = values[i] ? values[i].trim() : "";
+          return obj;
+        }, {});
+      });
+    }
+
+    fetch(csvUrl)
+      .then(res => res.text())
+      .then(text => {
+        const data = csvToArray(text);
+
+        if (!data.length) {
+          document.getElementById('tabela').innerHTML = '<tr><td>Nenhum dado encontrado.</td></tr>';
+          return;
+        }
+        const tabela = document.getElementById('tabela');
+        tabela.innerHTML = '';
+
+        // Cabeçalho
+        const thead = document.createElement('thead');
+        const trHead = document.createElement('tr');
+        Object.keys(data[0]).forEach(key => {
+          const th = document.createElement('th');
+          th.textContent = key;
+          trHead.appendChild(th);
+        });
+        thead.appendChild(trHead);
+        tabela.appendChild(thead);
+
+        // Corpo
+        const tbody = document.createElement('tbody');
+        data.forEach(row => {
+          const tr = document.createElement('tr');
+          Object.values(row).forEach(cell => {
+            const td = document.createElement('td');
+            td.textContent = cell;
+            tr.appendChild(td);
+          });
+          tbody.appendChild(tr);
+        });
+        tabela.appendChild(tbody);
+      })
+      .catch(err => {
+        document.getElementById('tabela').innerHTML = '<tr><td>Erro ao carregar os dados</td></tr>';
+        console.error(err);
+      });
+  </script>
+</body>
+</html>

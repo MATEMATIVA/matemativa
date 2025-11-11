@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Cadastro de Eventos</title>
+  <style>
+    label { display: block; margin-top: 8px; }
+    select, input { min-width: 200px; }
+    button { margin-top: 15px; }
+  </style>
+</head>
+<body>
+  <h2>Cadastro de Eventos</h2>
+  <form id="eventoForm">
+    <label>
+      Código: <input type="text" name="codigo" required>
+    </label>
+    <label>
+      Evento: <input type="text" name="evento" required>
+    </label>
+    <label>
+      Promovido por: <input type="text" name="promovido" required>
+    </label>
+    <label>
+      Local: <input type="text" name="local" required>
+    </label>
+    <label>
+      Endereço: <input type="text" name="endereco" required>
+    </label>
+    <label>
+      Estado:
+      <select name="estado" id="estado" required>
+        <option value="">Selecione o estado</option>
+      </select>
+    </label>
+    <label>
+      Cidade:
+      <select name="cidade" id="cidade" required>
+        <option value="">Selecione a cidade</option>
+      </select>
+    </label>
+    <label>
+      Data de Início: <input type="date" name="dataInicio" required>
+    </label>
+    <label>
+      Data de Término: <input type="date" name="dataTermino" required>
+    </label>
+    <label>
+      Responsável: <input type="text" name="responsavel" required>
+    </label>
+    <label>
+      Tipo de Apresentação: <input type="text" name="tipoApresentacao">
+    </label>
+    <label>
+      Tipo de Exposição: <input type="text" name="tipoExposicao">
+    </label>
+    <button type="submit">Adicionar Evento</button>
+  </form>
+
+  <button id="baixarCSV" style="display:none;">Baixar CSV</button>
+
+  <script>
+    let listaEstados = [];
+    const estadoSelect = document.getElementById('estado');
+    const cidadeSelect = document.getElementById('cidade');
+
+    // Carrega o JSON no formato { "estados": [ ... ] }
+    fetch('estados-cidades.json')
+      .then(response => response.json())
+      .then(data => {
+        listaEstados = data.estados;
+        listaEstados.forEach(estado => {
+          const option = document.createElement('option');
+          option.value = estado.sigla;
+          option.textContent = estado.nome;
+          estadoSelect.appendChild(option);
+        });
+      })
+      .catch(erro => {
+        alert('Erro ao carregar estados: ' + erro);
+      });
+
+    estadoSelect.addEventListener('change', function() {
+      cidadeSelect.innerHTML = '<option value="">Selecione a cidade</option>';
+      const estadoSelecionado = listaEstados.find(e =>
+        e.sigla === estadoSelect.value
+      );
+      if (estadoSelecionado) {
+        estadoSelecionado.cidades.forEach(cidade => {
+          const option = document.createElement('option');
+          option.value = cidade;
+          option.textContent = cidade;
+          cidadeSelect.appendChild(option);
+        });
+      }
+    });
+
+    // Lógica para salvar eventos e gerar CSV
+    const eventos = [];
+    const form = document.getElementById('eventoForm');
+    const btnCSV = document.getElementById('baixarCSV');
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const formData = new FormData(form);
+      const dataInicio = formData.get('dataInicio');
+      const ano = dataInicio ? new Date(dataInicio).getFullYear() : '';
+
+      const evento = {
+        codigo: formData.get('codigo'),
+        evento: formData.get('evento'),
+        promovido: formData.get('promovido'),
+        local: formData.get('local'),
+        endereco: formData.get('endereco'),
+        cidade: formData.get('cidade'),
+        estado: formData.get('estado'),
+        dataInicio: formData.get('dataInicio'),
+        dataTermino: formData.get('dataTermino'),
+        ano: ano,
+        responsavel: formData.get('responsavel'),
+        tipoApresentacao: formData.get('tipoApresentacao'),
+        tipoExposicao: formData.get('tipoExposicao')
+      };
+
+      eventos.push(evento);
+
+      if (eventos.length > 0) {
+        btnCSV.style.display = 'inline-block';
+      }
+
+      form.reset();
+      cidadeSelect.innerHTML = '<option value="">Selecione a cidade</option>';
+      alert('Evento adicionado!');
+    });
+
+    btnCSV.addEventListener('click', function() {
+      let csv = 'Código;Evento;Promovido por;Local;Endereço;Cidade;Estado;Data de Início;Data de Término;ANO;Responsável;Tipo de Apresentação;Tipo de Exposição\n';
+      eventos.forEach(ev => {
+        csv += `"${ev.codigo}";"${ev.evento}";"${ev.promovido}";"${ev.local}";"${ev.endereco}";"${ev.cidade}";"${ev.estado}";"${ev.dataInicio}";"${ev.dataTermino}";"${ev.ano}";"${ev.responsavel}";"${ev.tipoApresentacao}";"${ev.tipoExposicao}"\n`;
+      });
+
+      const blob = new Blob([csv], { type: 'text/csv' });
+      const url = URL.createObjectURL(blob);
+
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'eventos.csv';
+      a.click();
+
+      URL.revokeObjectURL(url);
+    });
+  </script>
+</body>
+</html>
